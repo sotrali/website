@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+This is my personal website's repository, soon to be hosted somewhere. It contains information about me and my professional experience.
