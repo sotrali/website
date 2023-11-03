@@ -1,0 +1,30 @@
+/** used in test-layout */
+.title {
+  margin-top: 0;
+  font-size: 2em;
+  color: black;
+}
+
+/** used in chemists */
+.ul {
+  padding-inline-start: 20px;
+}
+
+.ul {
+  list-style-type: none;
+  padding: 0px 10px;
+}
+
+.li {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

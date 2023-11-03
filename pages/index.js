@@ -33,9 +33,9 @@ export default function Home() {
       <p className={utilStyles.headingLg}>Welcome!</p>
       <p>
         This is my personal website, feel free to look around and learn more
-        about me. Can you find the secret link on this page?
+        about me. <br />
         <br />
-        <br />
+        Can you find the secret link on this page?
         <br />
       </p>
       <Footer />
