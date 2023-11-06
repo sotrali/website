@@ -42,17 +42,18 @@ export default function About() {
             style={{ fontSize: ".8em", width: "250px" }}
           >
             I founded the COF Skate Club, a student organization with over 100
-            members in the Fenway area. The goal was to form a friendly
-            community of skaters that spanned multiple college campuses in
-            Boston. We collaborated with several other organizations in the
-            area, held hands-on workshops, and more. There was an election for a
-            new president before I graduated, and it is still going strong!
+            members in the Fenway area. My goal was to form a friendly community
+            of skaters that spanned multiple college campuses in Boston. My
+            executive board and I collaborated with several other organizations
+            in the area, held custom skateboard workshops, raffled off
+            equipment, and more. COF Skate Club is under new leadership and
+            still going strong (instagram: @cofskateclub)!
           </div>
         </div>
         , and{" "}
         <div className={styles.tooltip} title='click image to enlarge'>
           {" "}
-          making fingerboards
+          making things with my hands
           <Link href='fb.jpg' target='_blank'>
             <Image
               title='click to enlarge'
@@ -69,16 +70,13 @@ export default function About() {
         <br />
         Computers have been part of my life since late elementary school when I
         built my first gaming PC. Over the years and up until attending WIT, my
-        interest shifted from being predominantly hardware to predominantly to
-        software. I have set my sights on becoming a highly competent full-stack
-        software engineer and am looking to kick off my career!
+        interest shifted from hardware to software. I have set my sights on
+        becoming a highly competent full-stack software engineer and am looking
+        to join a team of other passionate and motivated people!
         <br />
         <br />I enjoy making things that others can interact and engage with,
-        especially if it helps them accomplish a goal or learn something. I like
-        starting personal projects and delving into ideas deep, trying to
-        understand my subject as comprehensively as possible. I enjoy taking the
-        extra time to explore and understand the details of whatever it is I am
-        doing.
+        especially if it helps them accomplish a goal, learn something, and/or
+        puts a smile on their face.
       </div>
       <br />
 
@@ -92,7 +90,7 @@ export function Footer() {
   return (
     <div className={utilStyles.spread}>
       <Link href='/resume.pdf' target='_blank'>
-        view resume
+        resume
       </Link>
 
       <a href='https://www.github.com/osheas1atwit' target='_blank'>

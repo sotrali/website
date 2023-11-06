@@ -44,7 +44,21 @@ export const exerciseUrls = [
     id: "6",
     title: "Click Counter",
     description:
-      "You can click your heart out! This is a bit of code I pulled out of an article (see source link) discussing React hooks and strategies for keeping such code organized effectively. I have been using it as reference and as a sandbox for my own play, and plan on reading further / experimenting with what they consider to be best practices.",
+      "You can click your heart out! This is a bit of code I modified from an article (see source link) discussing React hooks and strategies for keeping such code organized effectively. I have been using it as reference and as a sandbox for my own play, and plan on reading further / experimenting with what they consider to be best practices.",
     url: "/tests/click-counter",
+  },
+  {
+    id: "7",
+    title: "Random Animal Images API",
+    description:
+      "Playing with a new public API I found. This one has a few categories of images that you can request at random (one time I found a photo of a wristwatch in the 'shiba inu' category, not sure what that was all about). So cute!",
+    url: "/tests/animals",
+  },
+  {
+    id: "8",
+    title: "Custom Weather Search",
+    description:
+      "A little weather grabber that utilizes the Accuweather API. The animal photo API I used in the last page was fully unprotected, but this one requires an API key and an account. The free tier only permits 50 calls a day :(",
+    url: "/tests/weather",
   },
 ];

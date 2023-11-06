@@ -63,6 +63,42 @@ FONT / TEXT CLASSES
   border: black 1px solid;
 }
 
+.bigButton {
+  width: 10em;
+  height: 3em;
+
+  background-color: whitesmoke;
+  border: solid #b7ccb9 2px;
+  border-radius: 3em;
+}
+.medButton {
+  width: 8em;
+  height: 2em;
+
+  background-color: whitesmoke;
+  border: solid #b7ccb9 2px;
+  border-radius: 3em;
+}
+.bigButton:hover,
+.medButton:hover {
+  background-color: #eef3ef;
+}
+.bigButton:active,
+.medButton:active {
+  background-color: #b7ccb9;
+}
+
+.search {
+  background-color: inherit;
+  border: none;
+  border-bottom: solid black 1px;
+  text-align: center;
+  margin: 1em 0;
+}
+.search:focus {
+  outline-style: none;
+}
+
 /**
 PADDING AND MARGIN
 */

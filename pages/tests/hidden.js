@@ -8,7 +8,16 @@ export default function main() {
       <p style={{ textAlign: "center" }}>
         wow!! you found the extra secret page!
         <br />
-        what are you, a pen tester?
+        I've gotta figure out what to put here.
+        <br />
+        <br />
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href='mailto:vesspa0330@gmail.com?subject=Hidden Page Suggestion'
+        >
+          suggest something
+        </a>
       </p>
 
       <hr />

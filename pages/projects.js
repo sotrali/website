@@ -44,10 +44,10 @@ export function Footer() {
   return (
     <div className={utilStyles.spread}>
       <Link href='/resume.pdf' target='_blank'>
-        view resume
+        view my resume
       </Link>
       <a href='https://www.github.com/osheas1atwit' target='_blank'>
-        github
+        view my github
       </a>
     </div>
   );
@@ -76,12 +76,20 @@ export default function Home() {
             React-Bootstrap. JS is the most in-demand language right now.
           </li>
         </ul>
-        <Link
-          href='https://github.com/osheas1atwit/professional-website'
-          target='_blank'
-        >
-          source code
-        </Link>
+        <div className={utilStyles.spread}>
+          <Link
+            href='https://github.com/osheas1atwit/professional-website'
+            target='_blank'
+          >
+            source code
+          </Link>
+          <Link
+            href='https://hub.docker.com/r/osheas/personal-website'
+            target='_blank'
+          >
+            docker repo
+          </Link>
+        </div>
       </ExpandBox>
 
       <ExpandBox title='CGM Stats' skills='JS(X) / PYTHON / DOCKER'>
@@ -230,6 +238,11 @@ export default function Home() {
           source code / download
         </a>
       </ExpandBox>
+      <br />
+      <p>
+        Now this wasn't with my computer, but I've also made a{" "}
+        <Link href='/cbg.pdf'>cigar box guitar</Link>.
+      </p>
       <hr />
 
       <Footer />
