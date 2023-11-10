@@ -17,7 +17,7 @@ function Footer() {
   return (
     <>
       <hr />
-      <div>
+      <div style={{ textAlign: "left" }}>
         <Link href='tests' className={utilStyles.hidden}>
           i am secret
         </Link>
@@ -30,8 +30,12 @@ function Footer() {
 export default function Home() {
   return (
     <Layout id={"welcome"}>
-      <p className={utilStyles.headingLg}>Welcome!</p>
-      <p>
+      <p className={utilStyles.headingLg}>
+        <i>
+          <b>Welcome!</b>
+        </i>
+      </p>
+      <p style={{ fontSize: "1.2em" }}>
         This is my personal website, feel free to look around and learn more
         about me. <br />
         <br />

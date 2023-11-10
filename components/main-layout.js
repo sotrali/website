@@ -35,11 +35,15 @@ function NavLinks({ id }) {
 }
 
 export default function Layout({ children, id }) {
+  let title = "Simon O'Shea - Welcome";
+  if (id === "about") title = "Simon O'Shea - About";
+  if (id === "projects") title = "Simon O'Shea - Projects";
   return (
     <div className={styles.container}>
       <Head>
         <link rel='icon' href='/favicon.ico' />
-        <title>Simon O'Shea - Home</title>
+
+        <title>{title}</title>
 
         <meta name='viewport' content='width=divice-width, initial-scale=1' />
       </Head>
@@ -68,7 +72,7 @@ export default function Layout({ children, id }) {
 
       <hr />
 
-      <main>{children}</main>
+      <main style={{ textAlign: "center" }}>{children}</main>
     </div>
   );
 }

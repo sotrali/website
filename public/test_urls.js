@@ -56,9 +56,16 @@ export const exerciseUrls = [
   },
   {
     id: "8",
-    title: "Custom Weather Search",
+    title: "Basic Accuweather Interface",
     description:
-      "A little weather grabber that utilizes the Accuweather API. The animal photo API I used in the last page was fully unprotected, but this one requires an API key and an account. The free tier only permits 50 calls a day :(",
-    url: "/tests/weather",
+      "A little weather grabber that utilizes the Accuweather API. The animal photo API I used in the last test-page was fully unprotected, but this one requires you to register an API key. The free tier only permits a measly 50 calls a day! Due to this inconvenience I found another free API that permits up to a million calls per month, so I'm planning on making a new page with that API shortly.",
+    url: "/tests/accuweather",
+  },
+  {
+    id: "9",
+    title: "Weather API Search",
+    description:
+      "A new and improved weather search page!! Leveraging the power of Weather API, this page can search the weather up to 1 million times per month. Much better than Accuweather. I've included verbose output to make better use out of the data each call pulls, I love the little icon!",
+    url: "/tests/weatherAPI",
   },
 ];

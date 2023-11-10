@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 
 import { exerciseUrls as urls } from "../public/test_urls.js";
 import utilStyles from "../styles/utils.module.css";
@@ -28,10 +28,8 @@ function TableOfContents({ list, id, small = false }) {
           <>
             <ol start={0}>
               {list.map((index) => (
-                <li>
-                  <Link href={index.url} key={index.id}>
-                    {index.title}
-                  </Link>
+                <li key={index.id}>
+                  <Link href={index.url}>{index.title}</Link>
                   {id == index.id && " *"}
                 </li>
               ))}
@@ -98,11 +96,13 @@ function Footer({ home = false, id }) {
 }
 
 export default function Layout({ home = false, id = 0, children }) {
+  let page = id.toString();
+  let title = "Simon O'Shea - Test Page " + page;
   return (
     <div className={mainStyles.container}>
       <Head>
-        <link rel='icon' href='/favicon.ico' />
-        <meta name='Tests' />
+        <link rel='icon' href='/headshot.png' />
+        <title>{title}</title>
       </Head>
 
       {/** display previous/next above page contents */}
@@ -126,16 +126,19 @@ export default function Layout({ home = false, id = 0, children }) {
       <hr />
 
       {/** CHILDREN RENDERED HERE!!!!!!!!!!!!!!!!!!!!!!!!! */}
-      <main>{children}</main>
+      <main style={{ textAlign: "center" }}>{children}</main>
 
       {!home && (
         <>
           <br />
-          <div>
-            <i>On this page</i>: <br />
+          <hr />
+          <div style={{ margin: "1em 0" }}>
+            <i>
+              <b>On this page</b>
+            </i>
+            : <br />
             {urls[id].description}
           </div>
-          <br />
         </>
       )}
 

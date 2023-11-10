@@ -1,4 +1,4 @@
-import Layout, { siteTitle } from "../../components/tests-layout";
+import Layout from "../../components/tests-layout";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -14,14 +14,15 @@ export default function welcome() {
       router.push("/tests/hidden");
     } else if (input === "" || input === null) {
       alert("at least give it a shot!");
-    } else alert("better luck next time :(");
+    } else
+      alert(
+        "better luck next time :( \nhint: password is hidden on this page somewhere"
+      );
   }
 
   return (
-    <Layout home={true}>
-      <Head>
-        <title>{siteTitle + " - Tests"}</title>
-      </Head>
+    <Layout home={true} id={0}>
+      <Head></Head>
 
       <div>
         <h3>You found me?!</h3>

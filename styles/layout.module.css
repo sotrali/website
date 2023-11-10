@@ -22,34 +22,41 @@
   color: black;
 }
 
-/** taken from w3 tooltip */
+/** Underlined Text (taken from w3 tooltip) */
 .tooltip {
   position: relative;
-  display: inline;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  display: inline-block;
+  border-bottom: 1px dotted black; /* dots under the hoverable text */
+  cursor: pointer;
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
   background-color: #b7ccb9;
+
+  padding: 0.2em 0.2em;
+
+  font-size: 0.8em;
   color: black;
   text-align: center;
-  padding: 3px 3px;
 
   border: black solid 1px;
-
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
 
   bottom: 100%;
   right: 0%;
+  left: 0%;
+
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  opacity: 1;
 }

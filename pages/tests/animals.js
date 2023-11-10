@@ -4,7 +4,7 @@ import Layout from "../../components/tests-layout.js";
 import utilStyles from "../../styles/utils.module.css";
 
 export default function main() {
-  const [imageLink, setNewLink] = useState(0);
+  const [imageLink, setNewLink] = useState("");
 
   async function handleLink(type) {
     const url =
@@ -44,8 +44,19 @@ export default function main() {
         >
           new shiba inu!
         </button>
+
+        <a
+          href='https://shibe.online/'
+          target='_blank'
+          className={utilStyles.secondaryLink}
+        >
+          <br />
+          <br />
+          <br />
+          API source
+        </a>
       </div>
-      <a href='https://shibe.online/'>API source</a>
+      <br />
     </Layout>
   );
 }

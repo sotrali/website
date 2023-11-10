@@ -23,7 +23,7 @@ function ExpandBox({ title, skills, children }) {
         </p>
       </div>
       {showWebsiteBlurb && (
-        <div>
+        <div style={{ textAlign: "left" }}>
           <hr /> {children}
         </div>
       )}
@@ -59,11 +59,11 @@ export default function Home() {
     <Layout id={"projects"}>
       <Intro />
 
-      <ExpandBox title='Personal Website' skills='JS(X) / DOCKER'>
+      <ExpandBox title='Personal Website' skills='JS(X) / AWS'>
         <p>
-          This project is the website you're on right now (built with Next.js)!
-          Since graduating from Wentworth Institute of Technology in August '23,
-          I set my sights on React. I have been focusing on React because it is:
+          This project is the website you're on right now! Since graduating from
+          Wentworth Institute of Technology in August '23, I set my sights on
+          React. I have been focusing on React because it is:
         </p>
         <ul>
           <li>
@@ -76,6 +76,10 @@ export default function Home() {
             React-Bootstrap. JS is the most in-demand language right now.
           </li>
         </ul>
+        <p>
+          This site was built with Next.js and is hosted in an S3 bucket (which
+          is it doesn't have an SSL certificate).
+        </p>
         <div className={utilStyles.spread}>
           <Link
             href='https://github.com/osheas1atwit/professional-website'
@@ -238,10 +242,10 @@ export default function Home() {
           source code / download
         </a>
       </ExpandBox>
-      <br />
-      <p>
-        Now this wasn't with my computer, but I've also made a{" "}
-        <Link href='/cbg.pdf'>cigar box guitar</Link>.
+      <p style={{ textAlign: "center" }}>
+        (Not made with my computer, but I've also made a{" "}
+        <Link href='/cbg.pdf'>cigar box guitar</Link> and some chairs that I
+        need to find photos of)
       </p>
       <hr />
 
