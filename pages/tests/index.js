@@ -33,7 +33,7 @@ export default function welcome() {
           You are reading the index page of a 'hidden' directory that contains
           my code for the little challenges and exercises found at the end of
           the lessons in the{" "}
-          <a href='https://react.dev/learn/describing-the-ui'>
+          <a href='https://react.dev/learn/describing-the-ui' target='_blank'>
             React documentation
           </a>
           .

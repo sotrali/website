@@ -7,7 +7,17 @@ import utilStyles from "../styles/utils.module.css";
 
 export default function About() {
   return (
-    <Layout id={"about"}>
+    <Layout id={"info"}>
+      <h3>My Links:</h3>
+      <div>
+        <a href='https://www.github.com/osheas1atwit' target='_blank'>
+          <button className={utilStyles.bigButton}>My Github</button>
+        </a>{" "}
+        <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank'>
+          <button className={utilStyles.bigButton}>My LinkedIn</button>
+        </a>
+      </div>
+
       <div style={{ margin: "1em 0" }}>
         I enjoy playing with my computer,{" "}
         <div className={styles.tooltip} title='click vid to enlarge'>
@@ -110,16 +120,8 @@ export function Footer() {
   return (
     <div className={utilStyles.spread}>
       <Link href='/resume.pdf' target='_blank'>
-        resume
+        view my resume
       </Link>
-
-      <a href='https://www.github.com/osheas1atwit' target='_blank'>
-        github
-      </a>
-
-      <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank'>
-        linkedIn
-      </a>
 
       <a
         target='_blank'

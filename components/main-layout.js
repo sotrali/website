@@ -13,17 +13,17 @@ function NavLinks({ id }) {
         <div className={utilStyles.spread}>
           <Link href='/projects'>Projects & Experience</Link>
 
-          <Link href='/about'>About Me</Link>
+          <Link href='/info'>Info & Links</Link>
         </div>
       )}
       {id === "projects" && (
         <div className={utilStyles.spread}>
           <Link href='/'>Home</Link>
 
-          <Link href='/about'>About Me</Link>
+          <Link href='/info'>Info & Links</Link>
         </div>
       )}
-      {id === "about" && (
+      {id === "info" && (
         <div className={utilStyles.spread}>
           <Link href='/'>Home</Link>
 
@@ -36,7 +36,7 @@ function NavLinks({ id }) {
 
 export default function Layout({ children, id }) {
   let title = "Simon O'Shea - Welcome";
-  if (id === "about") title = "Simon O'Shea - About";
+  if (id === "info") title = "Simon O'Shea - Info";
   if (id === "projects") title = "Simon O'Shea - Projects";
   return (
     <div className={styles.container}>
@@ -65,7 +65,7 @@ export default function Layout({ children, id }) {
         {id === "projects" && (
           <h1 className={utilStyles.heading2Xl}>My Projects</h1>
         )}
-        {id === "about" && <h1 className={utilStyles.heading2Xl}>About Me</h1>}
+        {id === "info" && <h1 className={utilStyles.heading2Xl}>About Me</h1>}
       </header>
 
       <NavLinks id={id} />

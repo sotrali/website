@@ -17,7 +17,7 @@ function Footer() {
   return (
     <>
       <hr />
-      <div style={{ textAlign: "left" }}>
+      <div className={utilStyles.spread}>
         <Link href='tests' className={utilStyles.hidden}>
           i am secret
         </Link>
@@ -37,11 +37,13 @@ export default function Home() {
       </p>
       <p style={{ fontSize: "1.2em" }}>
         This is my personal website, feel free to look around and learn more
-        about me. <br />
+        about me.
+        <br />
         <br />
         Can you find the secret link on this page?
         <br />
       </p>
+
       <Footer />
     </Layout>
   );
