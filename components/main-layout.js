@@ -34,6 +34,27 @@ function NavLinks({ id }) {
   );
 }
 
+function Footer() {
+  return (
+    <div>
+      <hr />
+      <div className={utilStyles.spread} style={{ paddingTop: ".25rem" }}>
+        <a href='https://www.linkedin.com/in/simon-o-shea/'>
+          <button className={utilStyles.medButton}>My LinkedIn</button>
+        </a>
+
+        <a href='https://github.com/osheas1atwit'>
+          <button className={utilStyles.medButton}>My Github</button>
+        </a>
+
+        <a href='https://www.google.com'>
+          <button className={utilStyles.medButton}>My Resume</button>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function Layout({ children, id }) {
   let title = "Simon O'Shea - Welcome";
   if (id === "info") title = "Simon O'Shea - Info";
@@ -73,6 +94,8 @@ export default function Layout({ children, id }) {
       <hr />
 
       <main style={{ textAlign: "center" }}>{children}</main>
+
+      <Footer />
     </div>
   );
 }
