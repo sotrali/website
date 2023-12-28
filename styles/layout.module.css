@@ -22,12 +22,12 @@
   color: black;
 }
 
-/** Underlined Text (taken from w3 tooltip) */
+/** Underlined Text (original concept taken from w3 tooltip) */
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* dots under the hoverable text */
-  cursor: pointer;
+  text-decoration: dotted underline;
+  cursor: text;
 }
 
 /* Tooltip text */

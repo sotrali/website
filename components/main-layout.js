@@ -13,14 +13,14 @@ function NavLinks({ id }) {
         <div className={utilStyles.spread}>
           <Link href='/projects'>Projects & Experience</Link>
 
-          <Link href='/info'>Info & Links</Link>
+          <Link href='/info'>About Me</Link>
         </div>
       )}
       {id === "projects" && (
         <div className={utilStyles.spread}>
           <Link href='/'>Home</Link>
 
-          <Link href='/info'>Info & Links</Link>
+          <Link href='/info'>About Me</Link>
         </div>
       )}
       {id === "info" && (
@@ -42,14 +42,25 @@ function Footer() {
         <a href='https://www.linkedin.com/in/simon-o-shea/'>
           <button className={utilStyles.medButton}>My LinkedIn</button>
         </a>
-
         <a href='https://github.com/osheas1atwit'>
           <button className={utilStyles.medButton}>My Github</button>
         </a>
 
-        <a href='https://www.google.com'>
-          <button className={utilStyles.medButton}>My Resume</button>
-        </a>
+        <div style={{ display: "block" }}>
+          <Link href='resume.pdf'>
+            <button className={utilStyles.medButton}>
+              <div
+                className={styles.tooltip}
+                style={{ textDecoration: "none", cursor: "pointer" }}
+              >
+                My Resume
+                <span className={styles.tooltiptext} style={{ width: "7em" }}>
+                  Everything underlined on my resume is a link!
+                </span>
+              </div>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -91,6 +102,17 @@ export default function Layout({ children, id }) {
 
       <NavLinks id={id} />
 
+      {/* Nav-Bar*/}
+      <div>
+        <hr />
+        <button
+          id='burgerButton'
+          className={utilStyles.medButton}
+          style={{ width: "2em" }}
+        >
+          -
+        </button>
+      </div>
       <hr />
 
       <main style={{ textAlign: "center" }}>{children}</main>

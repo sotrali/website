@@ -1,6 +1,7 @@
 import Layout from "../../components/tests-layout";
 import Head from "next/head";
-import Link from "next/link";
+
+import utilStyles from "../../styles/utils.module.css";
 
 import { useRouter } from "next/navigation";
 
@@ -45,7 +46,9 @@ export default function welcome() {
           a bit of fun!
         </p>
         <br />
-        <Button onClick={buttonClick}>Click me?</Button>
+        <button onClick={buttonClick} className={utilStyles.medButton}>
+          Click me?
+        </button>
         <p style={{ color: "whitesmoke", marginTop: "0", textAlign: "center" }}>
           password: password
         </p>

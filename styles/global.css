@@ -28,10 +28,12 @@ a,
 a.visited {
   color: black;
   text-decoration: underline;
+  transition: color 0.5s ease;
 }
 
 a:hover {
-  color: #b7ccb9;
+  /* color: #dce8dd; */
+  color: #5d6d5f;
 }
 
 * {

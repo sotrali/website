@@ -97,7 +97,7 @@ export default function main() {
       }
     } catch (err) {
       console.log(err);
-      setCondition("ERROR :(");
+      setCondition("Your search didn't return any results :(");
     }
   }
 

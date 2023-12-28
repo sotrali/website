@@ -9,10 +9,10 @@ import utilStyles from "../styles/utils.module.css";
 import { useState } from "react";
 
 function ExpandBox({ title, skills, children }) {
-  const [showWebsiteBlurb, setShowWebsiteBlurb] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   function handleShow() {
-    setShowWebsiteBlurb(!showWebsiteBlurb);
+    setShowContent(!showContent);
   }
   return (
     <div className={utilStyles.expandBox}>
@@ -22,7 +22,8 @@ function ExpandBox({ title, skills, children }) {
           <i>{skills}</i>
         </p>
       </div>
-      {showWebsiteBlurb && (
+
+      {showContent && (
         <div style={{ textAlign: "left" }}>
           <hr /> {children}
         </div>
@@ -37,19 +38,6 @@ export function Intro() {
       I am a curious individual that enjoys spending time on my computer. This
       page highlights a few of the things I have used my computer to create!
     </p>
-  );
-}
-
-export function Footer() {
-  return (
-    <div className={utilStyles.spread}>
-      <Link href='/resume.pdf' target='_blank'>
-        view my resume
-      </Link>
-      <a href='https://www.github.com/osheas1atwit' target='_blank'>
-        view my github
-      </a>
-    </div>
   );
 }
 
@@ -203,12 +191,32 @@ export default function Home() {
         </Link>
 
         <br />
-        <a
-          href='https://github.com/connellatatwit/MythMatcher/tree/recover-spot'
-          target='_blank'
-        >
-          source code / download
-        </a>
+        <div className={utilStyles.spread}>
+          <a href='https://github.com/osheas1atwit/MythMatchr' target='_blank'>
+            source code
+          </a>
+          <div style={{ textAlign: "right" }}>
+            <a
+              href='https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link'
+              target='_blank'
+            >
+              download game
+            </a>
+            <br />
+            <div className={styles.tooltip} style={{ fontSize: ".6em" }}>
+              (how to play?)
+              <div
+                className={styles.tooltiptext}
+                style={{ width: "200px", fontSize: "1.2em" }}
+              >
+                The link above will bring you to a Google Drive folder. Download
+                and unzip the folder, extracting the contents wherever you want.
+                Then, run the .exe file and you'll be off! (Usually downloading
+                and running .exe's is a bad idea, but this time it's worth it)
+              </div>
+            </div>
+          </div>
+        </div>
       </ExpandBox>
 
       <ExpandBox title='Java Chat' skills='JAVA / NETWORKING'>
@@ -223,7 +231,7 @@ export default function Home() {
           />
         </Link>
         <a href='https://github.com/osheas1atwit/javaChat' target='_blank'>
-          source code / download
+          source code
         </a>
       </ExpandBox>
 
@@ -247,9 +255,6 @@ export default function Home() {
         <Link href='/cbg.pdf'>cigar box guitar</Link> and some chairs that I
         need to find photos of)
       </p>
-      <hr />
-
-      <Footer />
     </Layout>
   );
 }

@@ -67,8 +67,9 @@ FONT / TEXT CLASSES
   width: 10em;
   height: 3em;
 
-  background-color: whitesmoke;
-  border: solid #b7ccb9 2px;
+  background-color: #b7ccb9;
+
+  border: none;
   border-radius: 3em;
 }
 .medButton {
@@ -76,17 +77,51 @@ FONT / TEXT CLASSES
   height: 2em;
 
   background-color: #b7ccb9;
-  border: solid #b7ccb9 2px;
   border-radius: 3em;
+  border: none;
+  transition: color 0.1s ease;
+
+  /* selecting the text on the button takes away from the effect, especially on mobile. */
+  user-select: none; /* chrome and Opera */
+  -moz-user-select: none; /* Firefox */
+  -webkit-text-select: none; /* IOS Safari */
+  -webkit-user-select: none; /* Safari */
 }
 .bigButton:hover,
 .medButton:hover {
+  cursor: pointer;
+  animation: gelatine 1s 1;
   background-color: #c3d6c7;
 }
 .bigButton:active,
 .medButton:active {
-  border: #b7ccb9;
   background-color: #889589;
+  animation: squish 0.5s forwards;
+}
+
+@keyframes squish {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.8, 0.8);
+  }
+}
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.99, 1.01);
+  }
+  50% {
+    transform: scale(1.01, 0.99);
+  }
+  75% {
+    transform: scale(0.995, 1.005);
+  }
 }
 
 .search {
@@ -230,7 +265,7 @@ GENERAL EXPANDABLE BOX
 
   width: 85%;
 
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: border-color 3s ease-out;
 }
 
 .expandBoxTitle {
@@ -269,6 +304,7 @@ GENERAL EXPANDABLE BOX
 .expandBox:hover,
 .expandBox:focus,
 .expandBox:active {
+  transition: border-color 0.45s ease;
   border-color: #0f881d;
 }
 
@@ -277,8 +313,7 @@ GENERAL EXPANDABLE BOX
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* dots under the hoverable text */
-  cursor: pointer;
+  text-decoration: dotted underline;
 }
 
 /* Tooltip text */
