@@ -1,33 +1,30 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
 import Layout from "../components/main-layout";
-import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-import { useState } from "react";
+import Collapsible from "../components/Collapsible.js";
+
+import { useState, useRef, useEffect } from "react";
 
 function ExpandBox({ title, skills, children }) {
   const [showContent, setShowContent] = useState(false);
 
-  function handleShow() {
+  function handleClick() {
     setShowContent(!showContent);
   }
-  return (
-    <div className={utilStyles.expandBox}>
-      <div className={utilStyles.expandBoxHeadSpread} onClick={handleShow}>
-        <p className={utilStyles.expandBoxTitle}>{title}</p>
-        <p className={utilStyles.expandBoxSkills}>
-          <i>{skills}</i>
-        </p>
-      </div>
 
-      {showContent && (
-        <div style={{ textAlign: "left" }}>
-          <hr /> {children}
-        </div>
-      )}
+  return (
+    <div className={utilStyles.expandBox} style={{ textAlign: "left" }}>
+      <div className={utilStyles.expandBoxHeadSpread} onClick={handleClick}>
+        <p className={utilStyles.expandBoxTitle}>{title}</p>
+        <p className={utilStyles.expandBoxSkills}>{skills}</p>
+      </div>
+      <Collapsible isExpanded={showContent}>
+        <hr />
+        <div style={{ paddingBottom: "8px" }}>{children}</div>
+      </Collapsible>
     </div>
   );
 }
@@ -44,10 +41,10 @@ export function Intro() {
 // Main Function
 export default function Home() {
   return (
-    <Layout id={"projects"}>
+    <Layout pageID={"projects"}>
       <Intro />
 
-      <ExpandBox title='Personal Website' skills='JS(X) / AWS'>
+      <ExpandBox title='Personal Website' skills='NEXT.JS / AWS'>
         <p>
           This project is the website you're on right now! Since graduating from
           Wentworth Institute of Technology in August '23, I set my sights on
@@ -66,25 +63,38 @@ export default function Home() {
         </ul>
         <p>
           This site was built with Next.js and is hosted in an S3 bucket (which
-          is it doesn't have an SSL certificate).
+          is it doesn't have an SSL certificate). Besides help provided by
+          vanilla Next.js and React, everything has been put together by hand! I
+          built my own template and custom components (like these collapsible
+          boxes) and styled them myself!
         </p>
         <div className={utilStyles.spread}>
           <Link
             href='https://github.com/osheas1atwit/professional-website'
             target='_blank'
           >
-            source code
+            <button
+              className={utilStyles.medButton}
+              style={{ marginTop: ".2rem" }}
+            >
+              source code
+            </button>
           </Link>
           <Link
             href='https://hub.docker.com/r/osheas/personal-website'
             target='_blank'
           >
-            docker repo
+            <button
+              className={utilStyles.medButton}
+              style={{ marginTop: ".2rem" }}
+            >
+              docker repo
+            </button>
           </Link>
         </div>
       </ExpandBox>
 
-      <ExpandBox title='CGM Stats' skills='JS(X) / PYTHON / DOCKER'>
+      <ExpandBox title='CGM Stats' skills='REACT / PYTHON / DOCKER'>
         <p>
           CGM Stats is a web application for people with diabetes. It securely
           interacts with the Dexcom API to enable users to quickly access their
@@ -92,15 +102,17 @@ export default function Home() {
           device. <br />
           <br />
           My team and I became{" "}
-          <div className={styles.tooltip}>
+          <span className={utilStyles.tooltip}>
             PHRP
             <span
-              className={styles.tooltiptext}
-              style={{ fontSize: ".8em", width: "10em" }}
+              className={utilStyles.tooltiptextCenter}
+              style={{ fontSize: "1rem" }}
             >
-              <i>(protecting human research participants)</i>
+              PHRP:
+              <br /> <i>P</i>rotecting <i>H</i>uman <i>R</i>esearch <i>P</i>
+              articipants
             </span>
-          </div>{" "}
+          </span>{" "}
           certified in order to conduct research to guide our implementation.
           Our research plan was approved by Wentworth's Institute Review Board,
           and we got to work. <br />
@@ -108,10 +120,12 @@ export default function Home() {
           This project was my first exposure to React and showed me what it was
           like to start a full-scale application from scratch.
         </p>
+
         <Link href='/cgm_poster.png' target='_blank'>
           <Image
             src='/cgm_poster.png'
             title='click to enlarge'
+            alt='an academic poster describing the CGM Stats project'
             width={864}
             height={576}
           ></Image>
@@ -121,7 +135,12 @@ export default function Home() {
           href='https://github.com/shepherdm1atwit/CGM-Stats/tree/bootstrap-refactor'
           target='_blank'
         >
-          source code
+          <button
+            className={utilStyles.medButton}
+            style={{ marginTop: ".2rem" }}
+          >
+            source code
+          </button>
         </a>
       </ExpandBox>
 
@@ -133,45 +152,58 @@ export default function Home() {
           Markov Decision Processes, first order logic, conjuntive normal form,
           and more. This project is a visualizer for a handful of basic
           seraching algorithms developed with a partner over the course of two
-          weeks. <br />
+          weeks.
+          <br />
           <br />
           The goal was to create an interactive experience that focuses on the
           enjoyment of watching the computer make good decisions all on its own!
         </p>
+
         <Link href='pathfinder.jpg' target='_blank'>
           <Image
             src='/pathfinder.jpg'
             title='click to enlarge'
+            alt='a screenshot of the program'
             width={864}
             height={576}
           ></Image>
         </Link>
+
         <a
           href='https://github.com/osheas1atwit/pathfinding-visualizer'
           target='_blank'
         >
-          source code / download
+          <button
+            className={utilStyles.medButton}
+            style={{ marginTop: ".2rem", width: "10rem" }}
+          >
+            source code / download
+          </button>
         </a>
       </ExpandBox>
 
       <ExpandBox title='MythMatchr' skills='C# / UNITY'>
         <p>
-          MythMatchr is a play on the popular "GeoGuessr"{" "}
-          <div className={styles.tooltip} style={{ fontSize: ".6em" }}>
+          MythMatchr is a play on the popular{" "}
+          <a href='https://www.geoguessr.com/'>Geoguessr</a> web game{" "}
+          <span className={utilStyles.tooltip} style={{ fontSize: "1rem" }}>
             (what's that?)
-            <div
-              className={styles.tooltiptext}
-              style={{ width: "200px", fontSize: "1.2em" }}
+            <span
+              className={utilStyles.tooltiptextCenter}
+              style={{
+                width: "15rem",
+                fontSize: "1em",
+              }}
             >
-              Geoguessr is a game where you are placed somewhere random on Earth
-              in Google Maps street-view. The goal is to use context clues based
-              on what you see from the streets to guess exactly where you are on
-              the map.
-            </div>
-          </div>{" "}
-          web-game. The goal of this project was to create an engaging,
-          interactive experience that teaches the player about folklore. You may
-          be surprised and learn something new by playing!
+              Geoguessr is a game based on Google Earth street-view. <br />
+              <br />
+              You get placed on a random street somewhere on Earth, and you have
+              to use clues based on what you see to guess where you are.
+            </span>
+          </span>
+          . The goal of this project was to create an engaging, interactive
+          experience that teaches the player about folklore. You may be
+          surprised and learn something new by playing!
           <br />
           <br />
           In our game, the player is presented with an illustration and the name
@@ -185,6 +217,7 @@ export default function Home() {
           <Image
             src='/mythmatchr.png'
             title='click to enlarge'
+            alt='a screenshot of the game'
             width={450}
             height={499}
           />
@@ -193,28 +226,25 @@ export default function Home() {
         <br />
         <div className={utilStyles.spread}>
           <a href='https://github.com/osheas1atwit/MythMatchr' target='_blank'>
-            source code
+            <button
+              className={utilStyles.medButton}
+              style={{ marginTop: ".2rem" }}
+            >
+              source code
+            </button>
           </a>
           <div style={{ textAlign: "right" }}>
             <a
               href='https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link'
               target='_blank'
             >
-              download game
-            </a>
-            <br />
-            <div className={styles.tooltip} style={{ fontSize: ".6em" }}>
-              (how to play?)
-              <div
-                className={styles.tooltiptext}
-                style={{ width: "200px", fontSize: "1.2em" }}
+              <button
+                className={utilStyles.medButton}
+                style={{ marginTop: ".2rem" }}
               >
-                The link above will bring you to a Google Drive folder. Download
-                and unzip the folder, extracting the contents wherever you want.
-                Then, run the .exe file and you'll be off! (Usually downloading
-                and running .exe's is a bad idea, but this time it's worth it)
-              </div>
-            </div>
+                game .exe
+              </button>
+            </a>
           </div>
         </div>
       </ExpandBox>
@@ -226,12 +256,18 @@ export default function Home() {
           <Image
             src='/javachat.png'
             title='click to enlarge'
+            alt='a screenshot of the program'
             width={484}
             height={303}
           />
         </Link>
         <a href='https://github.com/osheas1atwit/javaChat' target='_blank'>
-          source code
+          <button
+            className={utilStyles.medButton}
+            style={{ marginTop: ".2rem" }}
+          >
+            source code
+          </button>
         </a>
       </ExpandBox>
 
@@ -240,20 +276,38 @@ export default function Home() {
           A basic command line program built for calculus II that can calculate
           exact and estimated values. It estimates using the fundamental theorem
           of calculus and the midpoint, trapezoidal, and Simpsons Riemann sum
-          methods.{" "}
+          methods.
         </p>
 
         <a
           href='https://github.com/osheas1atwit/integrationCalculator/tree/master'
           target='_blank'
         >
-          source code / download
+          <button
+            className={utilStyles.medButton}
+            style={{ marginTop: ".2rem", width: "10rem" }}
+          >
+            source code / download
+          </button>
         </a>
       </ExpandBox>
       <p style={{ textAlign: "center" }}>
-        (Not made with my computer, but I've also made a{" "}
-        <Link href='/cbg.pdf'>cigar box guitar</Link> and some chairs that I
-        need to find photos of)
+        (Not made with my computer, but I've also built a{" "}
+        <Link href='/cbg.pdf'>cigar box guitar</Link> and
+        <span className={utilStyles.tooltip}>
+          welded a chair
+          <span className={utilStyles.tooltiptextCenter}>
+            <Link href='welded_chair.jpg'>
+              <Image
+                src='/welded_chair.jpg'
+                height={2016 / 5}
+                width={1134 / 5}
+                alt='a photo of Simon sitting in his welded chair'
+              />
+            </Link>
+          </span>
+        </span>{" "}
+        that rocks on an old car's suspension spring)
       </p>
     </Layout>
   );

@@ -8,7 +8,7 @@ import utilStyles from "../styles/utils.module.css";
 // Main Component
 export default function Home() {
   return (
-    <Layout id={"welcome"}>
+    <Layout pageID={"welcome"}>
       <p className={utilStyles.headingXl}>Welcome,</p>
       <p style={{ fontSize: "1em", marginTop: "0" }}>
         my name is Simon O'Shea. <br />

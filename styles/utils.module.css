@@ -7,7 +7,7 @@ FONT / TEXT CLASSES
   line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.05rem;
-  margin: 1rem 0;
+  margin: 0;
 }
 
 .headingXl {
@@ -63,6 +63,12 @@ FONT / TEXT CLASSES
   border: black 1px solid;
 }
 
+/* TODO: optimize buttons and trim this css file */
+
+.squisher:hover {
+  animation: gelatine 1s 1 both;
+}
+
 .bigButton {
   width: 10em;
   height: 3em;
@@ -72,6 +78,7 @@ FONT / TEXT CLASSES
   border: none;
   border-radius: 3em;
 }
+
 .medButton {
   width: 8em;
   height: 2em;
@@ -81,7 +88,9 @@ FONT / TEXT CLASSES
   border: none;
   transition: color 0.1s ease;
 
-  /* selecting the text on the button takes away from the effect, especially on mobile. */
+  /* removes text selection. 
+   * selecting the text on the button takes away from the effect, especially on mobile. 
+   */
   user-select: none; /* chrome and Opera */
   -moz-user-select: none; /* Firefox */
   -webkit-text-select: none; /* IOS Safari */
@@ -105,7 +114,7 @@ FONT / TEXT CLASSES
     transform: scale(1, 1);
   }
   100% {
-    transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.6);
   }
 }
 @keyframes gelatine {
@@ -114,13 +123,16 @@ FONT / TEXT CLASSES
     transform: scale(1, 1);
   }
   25% {
-    transform: scale(0.99, 1.01);
+    transform: scale(0.9, 1);
   }
   50% {
-    transform: scale(1.01, 0.99);
+    transform: scale(1.01, 0.9);
   }
   75% {
-    transform: scale(0.995, 1.005);
+    transform: scale(0.995, 1);
+  }
+  100% {
+    transform: scale(1, 1);
   }
 }
 
@@ -254,11 +266,13 @@ GENERAL EXPANDABLE BOX
 */
 
 .expandBox {
-  padding: 0em 1em 1em 1em;
+  padding: 0em 1em 0em 1em;
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
+
+  overflow: visible;
 
   border: 1px solid #eaeaea;
   border-radius: 10px;
@@ -270,14 +284,13 @@ GENERAL EXPANDABLE BOX
 
 .expandBoxTitle {
   font-weight: bold;
-  text-decoration: underline;
   text-align: left;
 }
 
 .expandBoxSkills {
   text-align: right;
-  letter-spacing: 0.05em;
-  font-size: 0.8em;
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
   align-self: center;
 }
 
@@ -292,18 +305,15 @@ GENERAL EXPANDABLE BOX
 }
 
 .expandBoxHeadSpread {
-  padding-top: 0;
   font-size: 1.2em;
 
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  margin-top: 0em;
 }
 
 .expandBox:hover,
-.expandBox:focus,
-.expandBox:active {
+.expandBox:focus {
   transition: border-color 0.45s ease;
   border-color: #0f881d;
 }
@@ -313,17 +323,44 @@ GENERAL EXPANDABLE BOX
 .tooltip {
   position: relative;
   display: inline-block;
+
+  cursor: help;
   text-decoration: dotted underline;
 }
 
-/* Tooltip text */
+/* Tooltip Content for center of screen */
+.tooltip .tooltiptextCenter {
+  visibility: hidden;
+  background-color: #b7ccb9;
+
+  padding: 0.2em 0.2em;
+
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+
+  border: black solid 1px;
+  border-radius: 6px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Tooltip Content for right above hover text */
 .tooltip .tooltiptext {
   visibility: hidden;
   background-color: #b7ccb9;
 
   padding: 0.2em 0.2em;
 
-  font-size: 0.8em;
+  font-size: 1rem;
   color: black;
   text-align: center;
 
@@ -342,6 +379,10 @@ GENERAL EXPANDABLE BOX
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptextCenter {
+  visibility: visible;
+  opacity: 1;
+}
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;

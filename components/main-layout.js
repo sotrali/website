@@ -5,32 +5,77 @@ import Link from "next/link";
 import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-function NavLinks({ id }) {
+import Collapsible from "../components/Collapsible.js";
+import { useState } from "react";
+
+function NavLinks() {
   return (
     <>
       <hr />
-      {id === "welcome" && (
-        <div className={utilStyles.spread}>
-          <Link href='/projects'>Projects & Experience</Link>
-
-          <Link href='/info'>About Me</Link>
-        </div>
-      )}
-      {id === "projects" && (
-        <div className={utilStyles.spread}>
-          <Link href='/'>Home</Link>
-
-          <Link href='/info'>About Me</Link>
-        </div>
-      )}
-      {id === "info" && (
-        <div className={utilStyles.spread}>
-          <Link href='/'>Home</Link>
-
-          <Link href='/projects'>Projects & Experience</Link>
-        </div>
-      )}
+      <div className={utilStyles.spread}>
+        <Link href='/'>
+          <button className={utilStyles.medButton}>Home Page</button>
+        </Link>
+        <Link href='/projects'>
+          <button className={utilStyles.medButton}>My Projects</button>
+        </Link>
+        <Link href='/info'>
+          <button className={utilStyles.medButton}>About Me</button>
+        </Link>
+      </div>
+      <br />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Link href='/tests/weatherAPI'>
+          <button className={utilStyles.medButton} style={{ height: "3rem" }}>
+            Check the Weather!
+          </button>
+        </Link>
+      </div>
     </>
+  );
+}
+
+function PageHeader({ pageID }) {
+  // Determine what page title/head information should be displayed
+  let title = "Simon O'Shea - Welcome";
+  let pageHeader = "Home";
+  if (pageID === "info") {
+    title = "Simon O'Shea - Info";
+    pageHeader = "About Me";
+  }
+  if (pageID === "projects") {
+    title = "Simon O'Shea - Projects";
+    pageHeader = "My Projects";
+  }
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  function handleMenu() {
+    setShowMenu(!showMenu);
+  }
+
+  return (
+    <header>
+      <Head>
+        <link rel='icon' href='/favicon.ico' />
+        <title>{title}</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </Head>
+      <div className={styles.header}>
+        <span onClick={handleMenu}>
+          <button className='menuButton' style={{ padding: "0" }}>
+            {/** padding: 0 is to keep mobile text alignment proper */}
+            Menu
+          </button>
+        </span>
+
+        <h1 className={utilStyles.heading2Xl}>{pageHeader}</h1>
+      </div>
+      <Collapsible isExpanded={showMenu}>
+        <NavLinks />
+      </Collapsible>
+      <hr />
+    </header>
   );
 }
 
@@ -50,13 +95,10 @@ function Footer() {
           <Link href='resume.pdf'>
             <button className={utilStyles.medButton}>
               <div
-                className={styles.tooltip}
+                className={utilStyles.tooltip}
                 style={{ textDecoration: "none", cursor: "pointer" }}
               >
                 My Resume
-                <span className={styles.tooltiptext} style={{ width: "7em" }}>
-                  Everything underlined on my resume is a link!
-                </span>
               </div>
             </button>
           </Link>
@@ -66,54 +108,10 @@ function Footer() {
   );
 }
 
-export default function Layout({ children, id }) {
-  let title = "Simon O'Shea - Welcome";
-  if (id === "info") title = "Simon O'Shea - Info";
-  if (id === "projects") title = "Simon O'Shea - Projects";
+export default function Layout({ children, pageID }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <link rel='icon' href='/favicon.ico' />
-
-        <title>{title}</title>
-
-        <meta name='viewport' content='width=divice-width, initial-scale=1' />
-      </Head>
-
-      <header className={styles.header}>
-        <Image
-          priority
-          src='/headshot.png'
-          className={utilStyles.borderCircle}
-          height={80}
-          width={80}
-          alt='A nice photo of Simon'
-          style={{ border: "solid black 1px" }}
-        />
-
-        {id === "welcome" && (
-          <h1 className={utilStyles.heading2Xl}>Simon O'Shea</h1>
-        )}
-        {id === "projects" && (
-          <h1 className={utilStyles.heading2Xl}>My Projects</h1>
-        )}
-        {id === "info" && <h1 className={utilStyles.heading2Xl}>About Me</h1>}
-      </header>
-
-      <NavLinks id={id} />
-
-      {/* Nav-Bar*/}
-      <div>
-        <hr />
-        <button
-          id='burgerButton'
-          className={utilStyles.medButton}
-          style={{ width: "2em" }}
-        >
-          -
-        </button>
-      </div>
-      <hr />
+      <PageHeader pageID={pageID} />
 
       <main style={{ textAlign: "center" }}>{children}</main>
 

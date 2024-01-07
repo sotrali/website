@@ -1,14 +1,47 @@
 @media only screen and (min-width: 720px) {
   html,
   body {
+    /* supposed to make sure content is shown in same place regardless of whether there is a scrollbar present. reduces jarring motion */
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
 
     padding: 0;
+    font-size: 16px;
     font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
       Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
       sans-serif;
     background-color: #b7ccb9;
+  }
+
+  .menuButton {
+    font-weight: bold;
+
+    width: 3rem;
+    height: 3rem;
+
+    background-color: #b7ccb9;
+    border: solid black 1px;
+    transition: all 0.1s ease;
+
+    /* removes text selection. 
+     * selecting the text on the button takes away from the effect, especially on mobile. 
+     */
+    user-select: none; /* chrome and Opera */
+    -moz-user-select: none; /* Firefox */
+    -webkit-text-select: none; /* IOS Safari */
+    -webkit-user-select: none; /* Safari */
+  }
+
+  .menuButton:hover {
+    cursor: pointer;
+    animation: squeeze 0.5s forwards;
+    background-color: #c3d6c7;
+  }
+
+  .menuButton:active {
+    border-radius: 99%;
+    background-color: #889589;
+    animation: squish 0.2s forwards;
   }
 }
 
@@ -21,6 +54,29 @@
       Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
       sans-serif;
     background-color: #b7ccb9;
+  }
+
+  .menuButton {
+    font-weight: bold;
+
+    width: 3rem;
+    height: 3rem;
+
+    background-color: #b7ccb9;
+    border: solid black 1px;
+    transition: all 0.1s ease;
+
+    /* removes text selection. 
+     * selecting the text on the button takes away from the effect, especially on mobile. 
+     */
+    user-select: none; /* chrome and Opera */
+    -moz-user-select: none; /* Firefox */
+    -webkit-text-select: none; /* IOS Safari */
+    -webkit-user-select: none; /* Safari */
+  }
+  .menuButton:active {
+    border-radius: 99%;
+    background-color: #889589;
   }
 }
 
@@ -43,4 +99,41 @@ a:hover {
 img {
   max-width: 100%;
   height: auto;
+}
+
+.collapse {
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+
+.spinner {
+  animation: spin 20s infinite forwards linear;
+}
+
+/** ANIMATIONS FOR HEADER ORBS */
+@keyframes squish {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.8, 0.6);
+  }
+}
+@keyframes squeeze {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.9, 1);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

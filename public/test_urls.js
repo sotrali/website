@@ -58,7 +58,7 @@ export const exerciseUrls = [
     id: "8",
     title: "Basic Accuweather Interface",
     description:
-      "A little weather grabber that utilizes the Accuweather API. The animal photo API I used in the last test-page was fully unprotected, but this one requires you to register an API key. The free tier only permits a measly 50 calls a day! Due to this inconvenience I found another free API that permits up to a million calls per month, so I'm planning on making a new page with that API shortly.",
+      "An incredibly basic weather grabber that utilizes the Accuweather API. The animal photo API I used in the last test-page was fully unprotected, but this one requires you to register an API key. The free tier only permits a measly 50 calls a day! Due to this inconvenience I found another free API that permits up to a million calls per month, so I'm planning on making a new page with that API shortly.",
     url: "/tests/accuweather",
   },
   {

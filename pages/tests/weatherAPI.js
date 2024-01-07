@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import Layout from "../../components/tests-layout.js";
 import utilStyles from "../../styles/utils.module.css";
-import utils from "../../components/utils.js";
 
 function verboseOutput(data) {
   let condition = data.current.condition.text;
@@ -27,42 +26,40 @@ function verboseOutput(data) {
     data.location.lon;
 
   return (
-    <div
-      className={utilStyles.card}
-      style={{ textAlign: "center", lineHeight: "1.6em" }}
-    >
-      <a href={mapsLink} target='_blank'>
+    <div style={{ textAlign: "center", lineHeight: "1.6em" }}>
+      <a href={mapsLink} target='_blank' title='open location in Maps'>
         {city}, {locationRegion}, {locationCountry}
-      </a>
-      <br />
-      Current Time:{" "}
-      <div className={utilStyles.tooltip}>
-        {localTime[1]}
-        <span className={utilStyles.tooltiptext} style={{ width: "8em" }}>
-          24-hour format
-        </span>
-      </div>
+      </a>{" "}
       <br />
       <img
         src={icon}
         style={{ width: "2em", height: "2em", marginTop: ".5em" }}
       />
       <br />
-      Current Conditions:
+      <i>Current Time:</i>
+      <br />
+      {localTime[1]}
+      <br />
+      <br />
+      <i>Current Conditions:</i>
       <br />
       {condition}, feels like {feelsLike} °F
       <br />
       Wind blowing <i>{windDir}</i> at {windSpeed} mph
       <br />
       Visibility for {visibility} miles
-      <p style={{ fontSize: ".6em" }}>Last updated: {updated}</p>
+      <p style={{ fontSize: ".6em", marginTop: "1rem" }}>
+        Last updated: {updated}
+      </p>
     </div>
   );
 }
 
 export default function main() {
   const [location, setLocation] = useState("");
-  const [condition, setCondition] = useState("");
+  const [condition, setCondition] = useState(
+    "(search results will show here!)"
+  );
 
   // checkboxes are weird and the order of events is a pain.
   // therefore verboseMode is always opposite of what the checkbox
@@ -132,7 +129,10 @@ export default function main() {
           <input type='checkbox' id='vCheck' onChange={handleCheck} />
           <label htmlFor='vCheck'>verbose output</label>
 
-          <div style={{ marginTop: "1em" }}>
+          <div
+            className={utilStyles.card}
+            style={{ marginTop: "1em", textAlign: "center" }}
+          >
             <p>{condition}</p>
           </div>
         </form>
