@@ -10,30 +10,27 @@ import { useState } from "react";
 
 function NavLinks() {
   return (
-    <div className={styles.linkStack}>
-      <Link href='/' className={styles.navLink}>
-        Home Page
+    <div className={styles.linkStack2}>
+      <Link href='/' className={styles.navLink2}>
+        Home
       </Link>
 
-      <Link href='/projects' className={styles.navLink}>
-        My Projects
+      <Link href='/projects' className={styles.navLink2}>
+        Projects
       </Link>
 
-      <Link href='recommendations' className={styles.navLink}>
+      <Link href='/recommendations' className={styles.navLink2}>
         Recommendations
       </Link>
 
-      <Link href='/info' className={styles.navLink}>
-        About Me
+      <Link href='/info' className={styles.navLink2}>
+        About
       </Link>
 
-      <Link href='tests' className={styles.navLink}>
-        Sandbox
+      <Link href='/posts' className={styles.navLink2}>
+        Blog
       </Link>
 
-      <Link href='/tests/weatherAPI' className={styles.navLink}>
-        Weather API
-      </Link>
     </div>
   );
 }

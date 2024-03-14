@@ -16,9 +16,11 @@
   justify-content: space-between;
   margin-bottom: 3px;
 }
+
 .burgerButtons:active {
   animation: squish 0.5s forwards;
 }
+
 .bar {
   display: block;
 
@@ -29,6 +31,7 @@
 
   background-color: black;
 }
+
 .burgerButtons:active .bar {
   background-color: #b7ccb9;
 }
@@ -45,6 +48,33 @@
   grid-template-columns: 1fr;
   row-gap: 0.5rem;
 }
+
+.linkStack2 {
+  display: flex;
+
+}
+
+.navLink {
+  text-align: center;
+  font-weight: 700;
+
+  text-decoration: none;
+  transition: text-decoration-color 0.5s ease;
+
+  padding: 0.5rem 0.5rem;
+}
+
+.navLink2 {
+  text-align: center;
+  font-weight: 700;
+
+  text-decoration: none;
+  transition: text-decoration-color 0.5s ease;
+
+  padding: 0.5rem 0.5rem;
+}
+
+.navLink:hover {}
 
 /** DESKTOP STYLES */
 @media only screen and (min-width: 720px) {
@@ -70,18 +100,6 @@
   /* height: 80vh;*/
 }
 
-.navLink {
-  text-align: center;
-  font-weight: 700;
-
-  text-decoration: none;
-  transition: text-decoration-color 0.5s ease;
-
-  padding: 0.5rem 0.5rem;
-}
-.navLink:hover {
-}
-
 .content {
   height: 80%;
   overflow: scroll;
@@ -105,10 +123,12 @@
 }
 
 @keyframes squish {
+
   from,
   to {
     transform: scale(1, 1);
   }
+
   100% {
     transform: scale(0.8, 0.6);
   }
