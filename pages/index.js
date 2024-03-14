@@ -28,13 +28,19 @@ export default function Home() {
         <br />
         <div style={{ display: "flex", justifyContent: "space-evenly" }}>
           <Link href='/projects'>
-            Projects
+            <button className={utilStyles.medButton}>
+              Projects
+            </button>
           </Link>
           <Link href='recommendations'>
-            Recommendations
+            <button className={utilStyles.medButton} style={{ width: "10rem" }}>
+              Recommendations
+            </button>
           </Link>
           <Link href='/info'>
-            More About Me
+            <button className={utilStyles.medButton}>
+              About
+            </button>
           </Link>
         </div>
       </p>

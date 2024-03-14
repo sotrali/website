@@ -20,7 +20,7 @@ function NavLinks() {
       </Link>
 
       <Link href='recommendations' className={styles.navLink}>
-        Professional <br /> Recommendations
+        Recommendations
       </Link>
 
       <Link href='/info' className={styles.navLink}>
@@ -110,9 +110,9 @@ function Footer() {
           <Image src="/github.png" width={25} height={25} alt="github logo"></Image>
         </a>
 
-        <Link href='resume.pdf' target='_blank' title="View my resume">
+        <a href='/resume.pdf' target='_blank' title="View my resume">
           <Image src="/resume.png" width={25} height={25} alt="resume icon"></Image>
-        </Link>
+        </a>
       </div>
     </div>
   );

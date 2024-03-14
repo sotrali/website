@@ -35,8 +35,8 @@ export default function Main() {
   return (
     <Layout pageID={"recommendations"}>
       <p className={utilStyles.blue}>
-        I would like to give a huge shoutout to the following people for being a
-        fantastic support system and making my time at Wentworth Institute of
+        I would like to give a huge shoutout to the following people for taking the time to write these kind words about me. They were a
+        fantastic support system and made my time at Wentworth Institute of
         Technology truly fulfilling.
       </p>
 
