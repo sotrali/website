@@ -57,7 +57,7 @@ function PageNavButtons({ id }) {
       {id > 1 ? (
         <Link href={urls[id - 1].url}>← Previous Page</Link>
       ) : id === 1 ? (
-        <Link href='/tests'>← Back to Hidden Home</Link>
+        <Link href='/tests'>← Back to Sandbox Home</Link>
       ) : (
         <span></span>
       )}

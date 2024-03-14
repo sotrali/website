@@ -1,62 +1,115 @@
+.pageHeader {
+  font-size: 1.8rem;
+  font-weight: 800;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.05rem;
+  margin: 0;
+  padding: 0;
+}
+
+.burgerButtons {
+  display: flex;
+  height: 1.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+.burgerButtons:active {
+  animation: squish 0.5s forwards;
+}
+.bar {
+  display: block;
+
+  height: 0.25rem;
+  width: 2rem;
+
+  border-radius: 3px;
+
+  background-color: black;
+}
+.burgerButtons:active .bar {
+  background-color: #b7ccb9;
+}
+
+.linkStack {
+  display: grid;
+
+  justify-items: center;
+
+  padding-top: 0.2rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+
+  grid-template-columns: 1fr;
+  row-gap: 0.5rem;
+}
+
+/** DESKTOP STYLES */
+@media only screen and (min-width: 720px) {
+  .pageHeader {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 0;
+  }
+
+  .burgerButtons {
+    margin-bottom: 2px;
+  }
+}
+
 .container {
   max-width: 36rem;
   padding: 1rem 1rem;
   margin: 3rem auto 6rem;
   background-color: whitesmoke;
   border: solid black 1px;
+
+  /* height: 80vh;*/
+}
+
+.navLink {
+  text-align: center;
+  font-weight: 700;
+
+  text-decoration: none;
+  transition: text-decoration-color 0.5s ease;
+
+  padding: 0.5rem 0.5rem;
+}
+.navLink:hover {
+}
+
+.content {
+  height: 80%;
+  overflow: scroll;
 }
 
 .header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.headshot {
+  margin-top: 8px;
+  border-radius: 99%;
+  border: 2px #b7ccb9 solid;
 }
 
 .backHome {
   margin: 3rem 0 0;
 }
 
-.title {
-  margin-top: 0;
-  font-size: 2em;
-  color: black;
-}
-
-/** Underlined Text (taken from w3 tooltip) */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* dots under the hoverable text */
-  cursor: pointer;
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  visibility: hidden;
-  background-color: #b7ccb9;
-
-  padding: 0.2em 0.2em;
-
-  font-size: 0.8em;
-  color: black;
-  text-align: center;
-
-  border: black solid 1px;
-  border-radius: 6px;
-
-  position: absolute;
-  z-index: 1;
-
-  bottom: 100%;
-  right: 0%;
-  left: 0%;
-
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+@keyframes squish {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.8, 0.6);
+  }
 }

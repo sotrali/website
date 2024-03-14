@@ -2,90 +2,87 @@
 FONT / TEXT CLASSES
 */
 
-.heading2Xl {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
-}
-
 .headingXl {
   font-size: 2rem;
   line-height: 1.3;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.05rem;
-  margin: 1rem 0;
-}
-
-.headingLg {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin: 1rem 0;
-}
-
-.headingMd {
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
-.borderCircle {
-  border-radius: 9999px;
-}
-
-.secondaryLink {
-  font-size: 0.8em;
-}
-
-.colorInherit {
-  color: inherit;
-}
-
-.hidden {
-  color: whitesmoke;
-  font-size: 0.8em;
-}
-
-.hidden:hover {
-  align-self: center;
-  color: black;
-}
-
-.expandLink {
-  font-size: 0.7em;
-  text-decoration: underline;
-  cursor: pointer;
-  align-self: flex-end;
-}
-
-.blurb {
-  background-color: #e4ebe4;
-  border: black 1px solid;
+  margin: 1rem 0 0 0;
 }
 
 .bigButton {
   width: 10em;
   height: 3em;
 
-  background-color: whitesmoke;
-  border: solid #b7ccb9 2px;
+  background-color: #b7ccb9;
   border-radius: 3em;
+  border: none;
+  transition: color 0.1s ease;
+
+  /* removes text selection. 
+   * selecting the text on the button takes away from the effect, especially on mobile. 
+   */
+  user-select: none; /* chrome and Opera */
+  -moz-user-select: none; /* Firefox */
+  -webkit-text-select: none; /* IOS Safari */
+  -webkit-user-select: none; /* Safari */
 }
+
 .medButton {
   width: 8em;
   height: 2em;
 
-  background-color: whitesmoke;
-  border: solid #b7ccb9 2px;
+  background-color: #b7ccb9;
   border-radius: 3em;
+  border: none;
+  transition: color 0.1s ease;
+
+  /* removes text selection. 
+   * selecting the text on the button takes away from the effect, especially on mobile. 
+   */
+  user-select: none; /* chrome and Opera */
+  -moz-user-select: none; /* Firefox */
+  -webkit-text-select: none; /* IOS Safari */
+  -webkit-user-select: none; /* Safari */
 }
 .bigButton:hover,
 .medButton:hover {
-  background-color: #eef3ef;
+  cursor: pointer;
+  animation: gelatine 1s 1;
+  background-color: #c3d6c7;
 }
 .bigButton:active,
 .medButton:active {
-  background-color: #b7ccb9;
+  background-color: #889589;
+  animation: squish 0.5s forwards;
+}
+
+@keyframes squish {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.8, 0.6);
+  }
+}
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1);
+  }
+  50% {
+    transform: scale(1.01, 0.9);
+  }
+  75% {
+    transform: scale(0.995, 1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
 }
 
 .search {
@@ -105,30 +102,12 @@ FONT / TEXT CLASSES
 }
 
 /**
-PADDING AND MARGIN
-*/
-
-.marginLS {
-  margin-left: 1em;
-}
-
-/**
 SPACING AND ORGANIZATION
 */
 .spread {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-
-  max-width: 800px;
-  margin-top: 3rem;
 }
 
 .card {
@@ -156,6 +135,30 @@ SPACING AND ORGANIZATION
 
 .card p {
   margin: 0;
+}
+
+.quote {
+  text-align: left;
+  border-left: solid #b7ccb9 2px;
+  padding-left: 1rem;
+  margin: 0 10%;
+}
+
+.quoteAuthor {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.05rem;
+  margin: 0;
+}
+
+.quoteAuthorTitle {
+  text-align: right;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: lighter;
+  letter-spacing: 0.05rem;
 }
 
 /** 
@@ -218,30 +221,38 @@ GENERAL EXPANDABLE BOX
 */
 
 .expandBox {
-  padding: 0em 1em 1em 1em;
+  padding: 0em 1em 0em 1em;
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
+
+  overflow: visible;
 
   border: 1px solid #eaeaea;
   border-radius: 10px;
 
   width: 85%;
 
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: border-color 3s ease-out;
 }
 
 .expandBoxTitle {
   font-weight: bold;
-  text-decoration: underline;
   text-align: left;
+}
+
+.expandBoxSubtitle {
+  text-align: left;
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
+  align-self: center;
 }
 
 .expandBoxSkills {
   text-align: right;
-  letter-spacing: 0.05em;
-  font-size: 0.8em;
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
   align-self: center;
 }
 
@@ -256,18 +267,16 @@ GENERAL EXPANDABLE BOX
 }
 
 .expandBoxHeadSpread {
-  padding-top: 0;
   font-size: 1.2em;
 
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-  margin-top: 0em;
 }
 
 .expandBox:hover,
-.expandBox:focus,
-.expandBox:active {
+.expandBox:focus {
+  transition: border-color 0.45s ease;
   border-color: #0f881d;
 }
 
@@ -276,18 +285,44 @@ GENERAL EXPANDABLE BOX
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* dots under the hoverable text */
-  cursor: pointer;
+
+  cursor: help;
+  text-decoration: dotted underline;
 }
 
-/* Tooltip text */
+/* Tooltip Content for center of screen */
+.tooltip .tooltiptextCenter {
+  visibility: hidden;
+  background-color: #b7ccb9;
+
+  padding: 0.2em 0.2em;
+
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+
+  border: black solid 1px;
+  border-radius: 6px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Tooltip Content for right above hover text */
 .tooltip .tooltiptext {
   visibility: hidden;
   background-color: #b7ccb9;
 
   padding: 0.2em 0.2em;
 
-  font-size: 0.8em;
+  font-size: 1rem;
   color: black;
   text-align: center;
 
@@ -295,7 +330,7 @@ GENERAL EXPANDABLE BOX
   border-radius: 6px;
 
   position: absolute;
-  z-index: 1;
+  z-index: 2;
 
   bottom: 100%;
   right: 0%;
@@ -306,6 +341,10 @@ GENERAL EXPANDABLE BOX
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptextCenter {
+  visibility: visible;
+  opacity: 1;
+}
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;

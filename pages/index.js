@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 
 import Layout from "../components/main-layout.js";
@@ -7,44 +5,51 @@ import Layout from "../components/main-layout.js";
 import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-import { useState } from "react";
-
-function Welcome() {
-  return <></>;
-}
-
-function Footer() {
-  return (
-    <>
-      <hr />
-      <div className={utilStyles.spread}>
-        <Link href='tests' className={utilStyles.hidden}>
-          i am secret
-        </Link>
-      </div>
-    </>
-  );
-}
-
-// Main Function
+// Main Component
 export default function Home() {
   return (
-    <Layout id={"welcome"}>
-      <p className={utilStyles.headingLg}>
-        <i>
-          <b>Welcome!</b>
-        </i>
+    <Layout pageID={"welcome"}>
+      <p className={utilStyles.headingXl}>Welcome.</p>
+      <p style={{ fontSize: "1em", marginTop: "0" }}>
+        My name is Simon O'Shea, and this is my website.
+        <br />
+        <br />
+        <Link href='/projects'>
+          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
+            My <br />
+            Projects
+          </button>
+        </Link>
+        <br />
+        <br />
+        Based in Boston, I am a web developer
+        <br />
+        and aspiring full-stack software engineer.
+        <br />
+        <br />
+        <Link href='recommendations'>
+          <button
+            className={utilStyles.medButton}
+            style={{ width: "9rem", height: "2.5rem" }}
+          >
+            Professional <br /> Recommendations
+          </button>
+        </Link>
+        <br />
+        <br />
+        My passions include connecting with
+        <br />
+        others, crafting great software, and
+        <br />
+        continuing to grow as a person.
+        <br />
+        <br />
+        <Link href='/info'>
+          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
+            More <br /> About Me
+          </button>
+        </Link>
       </p>
-      <p style={{ fontSize: "1.2em" }}>
-        This is my personal website, feel free to look around and learn more
-        about me.
-        <br />
-        <br />
-        Can you find the secret link on this page?
-        <br />
-      </p>
-
-      <Footer />
     </Layout>
   );
 }
