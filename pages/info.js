@@ -14,7 +14,6 @@ export default function About() {
         className={styles.headshot}
         width={100}
         height={100}
-        title='me :)'
         alt='My headshot photo.'
       />
       <div style={{ margin: "1em 0" }}>
@@ -25,8 +24,8 @@ export default function About() {
             <Link href='kickflip.gif' target='_blank'>
               <Image
                 src='/kickflip.gif'
-                width={320}
-                height={400}
+                width={518 * 0.6}
+                height={484 * 0.6}
                 alt='A video of me doing a kickflip in the middle of the street.'
               />
             </Link>
@@ -70,8 +69,8 @@ export default function About() {
             <Link href='/fb.jpg' target='_blank'>
               <Image
                 src='/fb.jpg'
-                width={518 / 2}
-                height={484 / 2}
+                width={1440 / 4}
+                height={1800 / 4}
                 alt='Me holding a partially completed fingerboard deck.'
               />
             </Link>

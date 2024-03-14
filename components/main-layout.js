@@ -5,33 +5,36 @@ import Link from "next/link";
 import styles from "../styles/layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-import Collapsible from "../components/Collapsible.js";
+import BurgerMenu from "../components/Collapsible.js";
 import { useState } from "react";
 
 function NavLinks() {
   return (
-    <>
-      <hr />
-      <div className={utilStyles.spread}>
-        <Link href='/'>
-          <button className={utilStyles.medButton}>Home Page</button>
-        </Link>
-        <Link href='/projects'>
-          <button className={utilStyles.medButton}>My Projects</button>
-        </Link>
-        <Link href='/info'>
-          <button className={utilStyles.medButton}>About Me</button>
-        </Link>
-      </div>
-      <br />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Link href='/tests/weatherAPI'>
-          <button className={utilStyles.medButton} style={{ height: "3rem" }}>
-            Check the Weather!
-          </button>
-        </Link>
-      </div>
-    </>
+    <div className={styles.linkStack}>
+      <Link href='/' className={styles.navLink}>
+        Home Page
+      </Link>
+
+      <Link href='/projects' className={styles.navLink}>
+        My Projects
+      </Link>
+
+      <Link href='recommendations' className={styles.navLink}>
+        Professional <br /> Recommendations
+      </Link>
+
+      <Link href='/info' className={styles.navLink}>
+        About Me
+      </Link>
+
+      <Link href='tests' className={styles.navLink}>
+        Sandbox
+      </Link>
+
+      <Link href='/tests/weatherAPI' className={styles.navLink}>
+        Weather API
+      </Link>
+    </div>
   );
 }
 
@@ -47,6 +50,10 @@ function PageHeader({ pageID }) {
     title = "Simon O'Shea - Projects";
     pageHeader = "My Projects";
   }
+  if (pageID === "recommendations") {
+    title = "Simon O'Shea - Recommendations";
+    pageHeader = "Recommendations";
+  }
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -61,20 +68,30 @@ function PageHeader({ pageID }) {
         <title>{title}</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
+
       <div className={styles.header}>
         <span onClick={handleMenu}>
-          <button className='menuButton' style={{ padding: "0" }}>
-            {/** padding: 0 is to keep mobile text alignment proper */}
-            Menu
-          </button>
+          <div className={styles.burgerButtons}>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+          </div>
         </span>
 
-        <h1 className={utilStyles.heading2Xl}>{pageHeader}</h1>
+        <h1 className={styles.pageHeader}>{pageHeader}</h1>
       </div>
-      <Collapsible isExpanded={showMenu}>
+
+      <BurgerMenu isExpanded={showMenu} isOverlay={"true"}>
         <NavLinks />
-      </Collapsible>
-      <hr />
+      </BurgerMenu>
+
+      <hr
+        style={{
+          color: "gray",
+          backgroundColor: "gray",
+          border: "1px solid gray",
+        }}
+      />
     </header>
   );
 }
@@ -84,15 +101,15 @@ function Footer() {
     <div>
       <hr />
       <div className={utilStyles.spread} style={{ paddingTop: ".25rem" }}>
-        <a href='https://www.linkedin.com/in/simon-o-shea/'>
+        <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank'>
           <button className={utilStyles.medButton}>My LinkedIn</button>
         </a>
-        <a href='https://github.com/osheas1atwit'>
+        <a href='https://github.com/osheas1atwit' target='_blank'>
           <button className={utilStyles.medButton}>My Github</button>
         </a>
 
         <div style={{ display: "block" }}>
-          <Link href='resume.pdf'>
+          <Link href='resume.pdf' target='_blank'>
             <button className={utilStyles.medButton}>
               <div
                 className={utilStyles.tooltip}

@@ -17,7 +17,7 @@ function Profile({
         <h2>{name}</h2>
 
         <img
-          className={styles.borderCircle}
+          style={{ borderRadius: "99%" }}
           src={getImageUrl(imageId)}
           alt={name}
           width={imageSize}

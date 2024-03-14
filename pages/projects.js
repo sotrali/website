@@ -6,7 +6,7 @@ import utilStyles from "../styles/utils.module.css";
 
 import Collapsible from "../components/Collapsible.js";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
 function ExpandBox({ title, skills, children }) {
   const [showContent, setShowContent] = useState(false);
@@ -63,10 +63,10 @@ export default function Home() {
         </ul>
         <p>
           This site was built with Next.js and is hosted in an S3 bucket (which
-          is it doesn't have an SSL certificate). Besides help provided by
-          vanilla Next.js and React, everything has been put together by hand! I
-          built my own template and custom components (like these collapsible
-          boxes) and styled them myself!
+          is it doesn't have an SSL certificate). Besides tools provided by the
+          vanilla Next.js framework, everything has been put together by hand! I
+          built my own site-template and custom components (like these
+          collapsible boxes), and styled everything myself!
         </p>
         <div className={utilStyles.spread}>
           <Link
@@ -109,8 +109,7 @@ export default function Home() {
               style={{ fontSize: "1rem" }}
             >
               PHRP:
-              <br /> <i>P</i>rotecting <i>H</i>uman <i>R</i>esearch <i>P</i>
-              articipants
+              <br /> Protecting Human Research Participants
             </span>
           </span>{" "}
           certified in order to conduct research to guide our implementation.
@@ -293,7 +292,7 @@ export default function Home() {
       </ExpandBox>
       <p style={{ textAlign: "center" }}>
         (Not made with my computer, but I've also built a{" "}
-        <Link href='/cbg.pdf'>cigar box guitar</Link> and
+        <Link href='/cbg.pdf'>cigar box guitar</Link> and{" "}
         <span className={utilStyles.tooltip}>
           welded a chair
           <span className={utilStyles.tooltiptextCenter}>

@@ -142,7 +142,7 @@ export default function main() {
         <a
           href='https://www.weatherapi.com/'
           target='_blank'
-          className={utilStyles.secondaryLink}
+          style={{ fontSize: "0.8rem" }}
         >
           API source
         </a>

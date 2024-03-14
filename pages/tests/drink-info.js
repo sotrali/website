@@ -29,22 +29,22 @@ function Drink({ name }) {
   const info = drinks[name];
   return (
     <section className={utilStyles.card}>
-      <h3 className={utilStyles.headingLg} style={{ marginBottom: ".2em" }}>
+      <h3 className={utilStyles.headingXl} style={{ marginBottom: ".2em" }}>
         {name}
       </h3>
       <dl style={{ marginTop: "0em" }}>
         <dt>Part of plant:</dt>
-        <dd className={utilStyles.marginLS}>
+        <dd style={{ marginLeft: "1rem" }}>
           <i>{info.part}</i>
         </dd>
 
         <dt>Caffeine content:</dt>
-        <dd className={utilStyles.marginLS}>
+        <dd style={{ marginLeft: "1rem" }}>
           <i>{info.caffeine}</i>
         </dd>
 
         <dt>Age:</dt>
-        <dd className={utilStyles.marginLS}>
+        <dd style={{ marginLeft: "1rem" }}>
           <i>{info.age}</i>
         </dd>
       </dl>

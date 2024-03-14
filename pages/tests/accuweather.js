@@ -79,7 +79,7 @@ export default function main() {
         <a
           href='https://developer.accuweather.com/'
           target='_blank'
-          className={utilStyles.secondaryLink}
+          style={{ fontSize: "0.8rem" }}
         >
           API source
         </a>

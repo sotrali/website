@@ -48,7 +48,7 @@ export default function main() {
         <a
           href='https://shibe.online/'
           target='_blank'
-          className={utilStyles.secondaryLink}
+          style={{ fontSize: "0.8rem" }}
         >
           <br />
           <br />

@@ -65,7 +65,7 @@ export const exerciseUrls = [
     id: "9",
     title: "Weather API Search",
     description:
-      "A new and improved weather search page!! Leveraging the power of Weather API, this page can search the weather up to 1 million times per month. Much better than Accuweather. I've included verbose output to make better use out of the data each call pulls, I love the little icon!",
+      "My latest React exercise, a new and improved weather search page!! Leveraging the power of Weather API, this page can search the weather up to 1 million times per month. Much better than Accuweather. I've included verbose output to make better use out of the data each call pulls, I love the little icon!",
     url: "/tests/weatherAPI",
   },
 ];

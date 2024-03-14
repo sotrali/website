@@ -77,7 +77,7 @@ export default function App({ date }) {
         <a
           href='https://medium.com/@vitalyb/react-hooks-better-without-nested-functions-9ff6876a7f2c'
           target='_blank'
-          className={utilStyles.secondaryLink}
+          style={{ fontSize: "0.8rem" }}
         >
           source
         </a>

@@ -9,13 +9,32 @@ import utilStyles from "../styles/utils.module.css";
 export default function Home() {
   return (
     <Layout pageID={"welcome"}>
-      <p className={utilStyles.headingXl}>Welcome,</p>
+      <p className={utilStyles.headingXl}>Welcome.</p>
       <p style={{ fontSize: "1em", marginTop: "0" }}>
-        my name is Simon O'Shea. <br />
+        My name is Simon O'Shea, and this is my website.
+        <br />
+        <br />
+        <Link href='/projects'>
+          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
+            My <br />
+            Projects
+          </button>
+        </Link>
+        <br />
         <br />
         Based in Boston, I am a web developer
         <br />
-        and an aspiring full-stack software engineer.
+        and aspiring full-stack software engineer.
+        <br />
+        <br />
+        <Link href='recommendations'>
+          <button
+            className={utilStyles.medButton}
+            style={{ width: "9rem", height: "2.5rem" }}
+          >
+            Professional <br /> Recommendations
+          </button>
+        </Link>
         <br />
         <br />
         My passions include connecting with
@@ -24,12 +43,13 @@ export default function Home() {
         <br />
         continuing to grow as a person.
         <br />
-      </p>
-      <div className={utilStyles.spread}>
-        <Link href='tests' className={utilStyles.hidden}>
-          i am secret!
+        <br />
+        <Link href='/info'>
+          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
+            More <br /> About Me
+          </button>
         </Link>
-      </div>
+      </p>
     </Layout>
   );
 }
