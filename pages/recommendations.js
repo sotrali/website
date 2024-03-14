@@ -12,7 +12,7 @@ function Quote({ children, author, title, location, link }) {
         <i>"{children}"</i>
       </p>
 
-      <div style={{ textAlign: "right" }}>
+      <div style={{ textAlign: "right", marginRight: "1rem" }}>
         <span style={{ marginBottom: "0", paddingBottom: "0" }}>
           <h1 className={utilStyles.quoteAuthor}>- {author}</h1>
         </span>
