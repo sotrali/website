@@ -14,41 +14,29 @@ export default function Home() {
         My name is Simon O'Shea, and this is my website.
         <br />
         <br />
-        <Link href='/projects'>
-          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
-            My <br />
-            Projects
-          </button>
-        </Link>
-        <br />
-        <br />
         Based in Boston, I am a web developer
         <br />
         and aspiring full-stack software engineer.
         <br />
         <br />
-        <Link href='recommendations'>
-          <button
-            className={utilStyles.medButton}
-            style={{ width: "9rem", height: "2.5rem" }}
-          >
-            Professional <br /> Recommendations
-          </button>
-        </Link>
-        <br />
-        <br />
         My passions include connecting with
         <br />
-        others, crafting great software, and
+        others, great software, skateboarding, and
         <br />
         continuing to grow as a person.
         <br />
         <br />
-        <Link href='/info'>
-          <button className={utilStyles.medButton} style={{ height: "2.5rem" }}>
-            More <br /> About Me
-          </button>
-        </Link>
+        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+          <Link href='/projects'>
+            Projects
+          </Link>
+          <Link href='recommendations'>
+            Recommendations
+          </Link>
+          <Link href='/info'>
+            More About Me
+          </Link>
+        </div>
       </p>
     </Layout>
   );

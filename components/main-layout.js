@@ -101,25 +101,18 @@ function Footer() {
     <div>
       <hr />
       <div className={utilStyles.spread} style={{ paddingTop: ".25rem" }}>
-        <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank'>
-          <button className={utilStyles.medButton}>My LinkedIn</button>
-        </a>
-        <a href='https://github.com/osheas1atwit' target='_blank'>
-          <button className={utilStyles.medButton}>My Github</button>
+
+        <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank' title="Visit my LinkedIn">
+          <Image src="/linkedin.png" width={25} height={25} alt="linkedin logo"></Image>
         </a>
 
-        <div style={{ display: "block" }}>
-          <Link href='resume.pdf' target='_blank'>
-            <button className={utilStyles.medButton}>
-              <div
-                className={utilStyles.tooltip}
-                style={{ textDecoration: "none", cursor: "pointer" }}
-              >
-                My Resume
-              </div>
-            </button>
-          </Link>
-        </div>
+        <a href='https://github.com/osheas1atwit' target='_blank' title="Visit my GitHub">
+          <Image src="/github.png" width={25} height={25} alt="github logo"></Image>
+        </a>
+
+        <Link href='resume.pdf' target='_blank' title="View my resume">
+          <Image src="/resume.png" width={25} height={25} alt="resume icon"></Image>
+        </Link>
       </div>
     </div>
   );
