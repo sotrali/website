@@ -10,7 +10,7 @@ import { useState } from "react";
 
 function NavLinks() {
   return (
-    <div className={styles.linkStack2}>
+    <div className={styles.linkStack}>
       <Link href='/' className={styles.navLink2}>
         Home
       </Link>
@@ -19,18 +19,17 @@ function NavLinks() {
         Projects
       </Link>
 
-      <Link href='/recommendations' className={styles.navLink2}>
-        Recommendations
+      <Link href='/posts' className={styles.navLink2}>
+        Blog
+      </Link>
+
+      <Link href='/testimonials' className={styles.navLink2}>
+        Testimonials
       </Link>
 
       <Link href='/info' className={styles.navLink2}>
         About
       </Link>
-
-      <Link href='/posts' className={styles.navLink2}>
-        Blog
-      </Link>
-
     </div>
   );
 }
@@ -47,9 +46,9 @@ function PageHeader({ pageID }) {
     title = "Simon O'Shea - Projects";
     pageHeader = "My Projects";
   }
-  if (pageID === "recommendations") {
-    title = "Simon O'Shea - Recommendations";
-    pageHeader = "Recommendations";
+  if (pageID === "testimonials") {
+    title = "Simon O'Shea - Testimonials";
+    pageHeader = "Testimonials";
   }
 
   const [showMenu, setShowMenu] = useState(false);
@@ -97,7 +96,7 @@ function Footer() {
   return (
     <div>
       <hr />
-      <div className={utilStyles.spread} style={{ paddingTop: ".25rem" }}>
+      <div style={{ paddingTop: ".25rem" }}>
 
         <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank' title="Visit my LinkedIn">
           <Image src="/linkedin.png" width={25} height={25} alt="linkedin logo"></Image>

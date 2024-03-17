@@ -9,8 +9,8 @@ import utilStyles from "../styles/utils.module.css";
 export default function Home() {
   return (
     <Layout pageID={"welcome"}>
-      <p className={utilStyles.headingXl}>Welcome.</p>
-      <p style={{ fontSize: "1em", marginTop: "0" }}>
+      <p className={utilStyles.headingXl} style={{ color: "darkgreen" }}>Welcome.</p>
+      <p style={{ fontSize: "1em", marginTop: "0", marginBottom: "2rem" }}>
         My name is Simon O'Shea, and this is my website.
         <br />
         <br />
@@ -24,26 +24,8 @@ export default function Home() {
         others, great software, skateboarding, and
         <br />
         continuing to grow as a person.
-        <br />
-        <br />
-        <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-          <Link href='/projects'>
-            <button className={utilStyles.medButton}>
-              Projects
-            </button>
-          </Link>
-          <Link href='recommendations'>
-            <button className={utilStyles.medButton} style={{ width: "10rem" }}>
-              Recommendations
-            </button>
-          </Link>
-          <Link href='/info'>
-            <button className={utilStyles.medButton}>
-              About
-            </button>
-          </Link>
-        </div>
       </p>
+
     </Layout>
   );
 }

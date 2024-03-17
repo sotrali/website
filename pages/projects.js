@@ -8,7 +8,15 @@ import Collapsible from "../components/Collapsible.js";
 
 import { useState } from "react";
 
-function ExpandBox({ title, skills, children }) {
+
+function Project({
+  title,
+  skills,
+  children,
+  githubLink = "https://www.github.com/osheas1atwit",
+  hasSecondButton = false,
+  secondButtonText = "", secondButtonLink = ""
+}) {
   const [showContent, setShowContent] = useState(false);
 
   function handleClick() {
@@ -17,34 +25,54 @@ function ExpandBox({ title, skills, children }) {
 
   return (
     <div className={utilStyles.expandBox} style={{ textAlign: "left" }}>
+
       <div className={utilStyles.expandBoxHeadSpread} onClick={handleClick}>
         <p className={utilStyles.expandBoxTitle}>{title}</p>
         <p className={utilStyles.expandBoxSkills}>{skills}</p>
       </div>
+
       <Collapsible isExpanded={showContent}>
         <hr />
-        <div style={{ paddingBottom: "8px" }}>{children}</div>
-      </Collapsible>
-    </div>
+
+        <div>{children}</div>
+
+        <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "1rem" }}>
+
+          <Link href={githubLink} target='_blank'>
+            <Image src="/github.png" width={25} height={25} title="go to git repo" />
+          </Link>
+
+          {hasSecondButton && (
+            <Link href={secondButtonLink} target='_blank' >
+              <button className={utilStyles.medButton}>
+                {secondButtonText}
+              </button>
+            </Link>)}
+
+        </div>
+      </Collapsible >
+    </div >
   );
 }
 
-export function Intro() {
-  return (
-    <p>
-      I am a curious individual that enjoys spending time on my computer. This
-      page highlights a few of the things I have used my computer to create!
-    </p>
-  );
-}
 
 // Main Function
 export default function Home() {
   return (
     <Layout pageID={"projects"}>
-      <Intro />
 
-      <ExpandBox title='Personal Website' skills='NEXT.JS / AWS'>
+      <p>
+        I am a curious individual that enjoys spending time on my computer. This
+        page highlights a few of the things I have used my computer to create!
+      </p>
+
+      <Project
+        title='Personal Website'
+        skills='NEXT.JS / AWS'
+        githubLink="https://github.com/osheas1atwit/professional-website"
+        hasSecondButton={true}
+        secondButtonLink="https://hub.docker.com/r/osheas/personal-website"
+        secondButtonText="Docker Repo">
         <p>
           This project is the website you're on right now! Since graduating from
           Wentworth Institute of Technology in August '23, I set my sights on
@@ -68,33 +96,14 @@ export default function Home() {
           built my own site-template and custom components (like these
           collapsible boxes), and styled everything myself!
         </p>
-        <div className={utilStyles.spread}>
-          <Link
-            href='https://github.com/osheas1atwit/professional-website'
-            target='_blank'
-          >
-            <button
-              className={utilStyles.medButton}
-              style={{ marginTop: ".2rem" }}
-            >
-              source code
-            </button>
-          </Link>
-          <Link
-            href='https://hub.docker.com/r/osheas/personal-website'
-            target='_blank'
-          >
-            <button
-              className={utilStyles.medButton}
-              style={{ marginTop: ".2rem" }}
-            >
-              docker repo
-            </button>
-          </Link>
-        </div>
-      </ExpandBox>
+      </Project>
 
-      <ExpandBox title='CGM Stats' skills='REACT / PYTHON / DOCKER'>
+
+      <Project
+        title='CGM Stats'
+        skills='REACT / PYTHON / DOCKER'
+        githubLink="https://github.com/shepherdm1atwit/CGM-Stats/tree/bootstrap-refactor"
+        hasSecondButton={false}>
         <p>
           CGM Stats is a web application for people with diabetes. It securely
           interacts with the Dexcom API to enable users to quickly access their
@@ -127,23 +136,17 @@ export default function Home() {
             alt='an academic poster describing the CGM Stats project'
             width={864}
             height={576}
+            style={{ marginBottom: "1rem" }}
           ></Image>
         </Link>
+      </Project>
 
-        <a
-          href='https://github.com/shepherdm1atwit/CGM-Stats/tree/bootstrap-refactor'
-          target='_blank'
-        >
-          <button
-            className={utilStyles.medButton}
-            style={{ marginTop: ".2rem" }}
-          >
-            source code
-          </button>
-        </a>
-      </ExpandBox>
 
-      <ExpandBox title='Pathfinding Algorithm Visualizer' skills='C# / UNITY'>
+      <Project
+        title='Pathfinding Algorithm Visualizer'
+        skills='C# / UNITY'
+        githubLink="https://github.com/osheas1atwit/pathfinding-visualizer"
+        hasSecondButton={false}>
         <p>
           My graduate classical artificial intelligence course introduced me to
           a variety of strategies for solving problems with basic AI concepts.
@@ -168,20 +171,21 @@ export default function Home() {
           ></Image>
         </Link>
 
-        <a
-          href='https://github.com/osheas1atwit/pathfinding-visualizer'
-          target='_blank'
-        >
-          <button
-            className={utilStyles.medButton}
-            style={{ marginTop: ".2rem", width: "10rem" }}
-          >
-            source code / download
-          </button>
-        </a>
-      </ExpandBox>
+        <p>
+          The repo contains a pre-built executable if you want to try the game yourself!
+          Just click the little icon below.
+        </p>
+      </Project>
 
-      <ExpandBox title='MythMatchr' skills='C# / UNITY'>
+
+      <Project
+        title='MythMatchr'
+        skills='C# / UNITY'
+        githubLink="https://github.com/osheas1atwit/MythMatchr"
+        hasSecondButton={true}
+        secondButtonLink="https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link"
+        secondButtonText="Play Game"
+      >
         <p>
           MythMatchr is a play on the popular{" "}
           <a href='https://www.geoguessr.com/'>Geoguessr</a> web game{" "}
@@ -222,33 +226,18 @@ export default function Home() {
           />
         </Link>
 
-        <br />
-        <div className={utilStyles.spread}>
-          <a href='https://github.com/osheas1atwit/MythMatchr' target='_blank'>
-            <button
-              className={utilStyles.medButton}
-              style={{ marginTop: ".2rem" }}
-            >
-              source code
-            </button>
-          </a>
-          <div style={{ textAlign: "right" }}>
-            <a
-              href='https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link'
-              target='_blank'
-            >
-              <button
-                className={utilStyles.medButton}
-                style={{ marginTop: ".2rem" }}
-              >
-                game .exe
-              </button>
-            </a>
-          </div>
-        </div>
-      </ExpandBox>
+        <p>
+          There is a pre-built executable for this game hosted on Drive if you
+          want to try it out below!
+        </p>
+      </Project>
 
-      <ExpandBox title='Java Chat' skills='JAVA / NETWORKING'>
+
+      <Project
+        title='Java Chat'
+        skills='JAVA / NETWORKING'
+        githubLink="https://github.com/osheas1atwit/pathfinding-visualizer"
+        hasSecondButton={false}>
         <p>Java Chat is a chat application that feels like IRC.</p>
 
         <Link href='javachat.png' target='_blank'>
@@ -258,38 +247,27 @@ export default function Home() {
             alt='a screenshot of the program'
             width={484}
             height={303}
+            style={{ marginBottom: "1rem" }}
           />
         </Link>
-        <a href='https://github.com/osheas1atwit/javaChat' target='_blank'>
-          <button
-            className={utilStyles.medButton}
-            style={{ marginTop: ".2rem" }}
-          >
-            source code
-          </button>
-        </a>
-      </ExpandBox>
 
-      <ExpandBox title='CLI Integration Calculator' skills='JAVA / CALCULUS'>
+      </Project>
+
+
+      <Project
+        title='CLI Integration Calculator'
+        skills='JAVA / CALCULUS'
+        githubLink="https://github.com/osheas1atwit/integrationCalculator/tree/master"
+        hasSecondButton={false}>
         <p>
           A basic command line program built for calculus II that can calculate
           exact and estimated values. It estimates using the fundamental theorem
           of calculus and the midpoint, trapezoidal, and Simpsons Riemann sum
           methods.
         </p>
+      </Project>
 
-        <a
-          href='https://github.com/osheas1atwit/integrationCalculator/tree/master'
-          target='_blank'
-        >
-          <button
-            className={utilStyles.medButton}
-            style={{ marginTop: ".2rem", width: "10rem" }}
-          >
-            source code / download
-          </button>
-        </a>
-      </ExpandBox>
+
       <p style={{ textAlign: "center" }}>
         (Not made with my computer, but I've also built a{" "}
         <Link href='/cbg.pdf'>cigar box guitar</Link> and{" "}

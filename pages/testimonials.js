@@ -14,28 +14,30 @@ function Quote({ children, author, title, location, link }) {
 
       <div style={{ textAlign: "right", marginRight: "1rem" }}>
         <span style={{ marginBottom: "0", paddingBottom: "0" }}>
-          <h1 className={utilStyles.quoteAuthor}>- {author}</h1>
+          <h1 className={utilStyles.quoteAuthor}>
+            -
+            <a href={link} target='_blank'>
+              {author}
+            </a>
+          </h1>
         </span>
-        <h3 className={utilStyles.quoteAuthorTitle}>
-          {title} <br />
+        <h3 className={utilStyles.quoteAuthorInfo}>
+          {title}
+          <br />
           <i>{location}</i>
         </h3>
-        <a href={link} target='_blank'>
-          <button className={utilStyles.medButton} style={{ width: "4.25rem" }}>
-            Contact
-          </button>
-        </a>
+
       </div>
-    </div>
+    </div >
   );
 }
 
 // Main Component
 export default function Main() {
   return (
-    <Layout pageID={"recommendations"}>
+    <Layout pageID={"testimonials"}>
       <p className={utilStyles.blue}>
-        I would like to give a huge shoutout to the following people for taking the time to write these kind words about me. They were a
+        I am deeply appreciative to the following people for taking the time to write these kind words about me. They were a
         fantastic support system and made my time at Wentworth Institute of
         Technology truly fulfilling.
       </p>
