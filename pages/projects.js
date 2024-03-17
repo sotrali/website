@@ -72,7 +72,7 @@ export default function Home() {
         githubLink="https://github.com/osheas1atwit/professional-website"
         hasSecondButton={true}
         secondButtonLink="https://hub.docker.com/r/osheas/personal-website"
-        secondButtonText="Docker Repo">
+        secondButtonText="Docker">
         <p>
           This project is the website you're on right now! Since graduating from
           Wentworth Institute of Technology in August '23, I set my sights on

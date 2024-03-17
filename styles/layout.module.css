@@ -9,6 +9,7 @@
   padding: 0;
 }
 
+/* BURGER MENU RELATED CLASSES */
 .burgerButtons {
   display: flex;
   height: 1.5rem;
@@ -49,32 +50,10 @@
   row-gap: 0.1rem;
 }
 
-.linkStack2 {
-  display: flex;
 
-}
 
-.navLink {
-  text-align: center;
-  font-weight: 700;
 
-  text-decoration: none;
-  transition: text-decoration-color 0.5s ease;
 
-  padding: 0.5rem 0.5rem;
-}
-
-.navLink2 {
-  text-align: center;
-  font-weight: 700;
-
-  text-decoration: none;
-  transition: text-decoration-color 0.5s ease;
-
-  padding: 0.5rem 0.5rem;
-}
-
-.navLink:hover {}
 
 /** DESKTOP STYLES */
 @media only screen and (min-width: 720px) {
@@ -112,11 +91,7 @@
   align-items: flex-end;
 }
 
-.headshot {
-  margin-top: 8px;
-  border-radius: 99%;
-  border: 2px #b7ccb9 solid;
-}
+
 
 .backHome {
   margin: 3rem 0 0;

@@ -156,6 +156,8 @@ SPACING AND ORGANIZATION
   margin: 0;
 }
 
+/** QUOTES FOR TESTIMONIALS **/
+
 .quote {
   text-align: left;
   border-left: solid #b7ccb9 2px;
@@ -181,7 +183,7 @@ SPACING AND ORGANIZATION
 }
 
 /** 
-toc = table of contents
+toc = table of contents, used in react tests
 */
 .tocBig {
   padding: 0em 1em 0em 1em;
@@ -299,6 +301,11 @@ GENERAL EXPANDABLE BOX
   border-color: #0f881d;
 }
 
+/*
+** END EXPANDABLE BOX
+* /
+
+
 /** TOOLTIPS */
 /** Underlined Text (taken from w3 tooltip) */
 .tooltip {
@@ -368,4 +375,14 @@ GENERAL EXPANDABLE BOX
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+/* END TOOLTIPS */
+
+
+/* For picture in "about" page */
+.headshot {
+  margin-top: 8px;
+  border-radius: 99%;
+  border: 2px #b7ccb9 solid;
 }

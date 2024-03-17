@@ -2,25 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Layout from "../components/main-layout";
-import utilsStyles from "../styles/utils.module.css";
+import utilStyles from "../styles/utils.module.css";
 import styles from "../styles/layout.module.css";
 
 export default function About() {
   return (
-    <Layout pageID={"info"}>
+    <Layout pageID={"about"}>
       <Image
         priority
         src='/headshot.png'
-        className={styles.headshot}
+        className={utilStyles.headshot}
         width={100}
         height={100}
         alt='My headshot photo.'
       />
       <div style={{ margin: "1em 0" }}>
         I enjoy playing with my computer,{" "}
-        <div className={utilsStyles.tooltip}>
+        <div className={utilStyles.tooltip}>
           riding my skateboard
-          <span className={utilsStyles.tooltiptextCenter}>
+          <span className={utilStyles.tooltiptextCenter}>
             <Link href='kickflip.gif' target='_blank'>
               <Image
                 src='/kickflip.gif'
@@ -43,10 +43,10 @@ export default function About() {
          *  V
          */}
         ,{" "}
-        <div className={utilsStyles.tooltip}>
+        <div className={utilStyles.tooltip}>
           engaging with people,
           <div
-            className={utilsStyles.tooltiptextCenter}
+            className={utilStyles.tooltiptextCenter}
             style={{ fontSize: "1.2rem", width: "20rem" }}
           >
             I founded the COF Skate Club, a student organization with over 100
@@ -63,9 +63,9 @@ export default function About() {
           </div>
         </div>{" "}
         and{" "}
-        <div className={utilsStyles.tooltip}>
+        <div className={utilStyles.tooltip}>
           making things with my hands
-          <span className={utilsStyles.tooltiptextCenter}>
+          <span className={utilStyles.tooltiptextCenter}>
             <Link href='/fb.jpg' target='_blank'>
               <Image
                 src='/fb.jpg'
@@ -85,9 +85,9 @@ export default function About() {
         <br />
         Working with computers has been an interest of mine since early high
         school when I{" "}
-        <div className={utilsStyles.tooltip}>
+        <div className={utilStyles.tooltip}>
           built my first gaming PC
-          <span className={utilsStyles.tooltiptextCenter}>
+          <span className={utilStyles.tooltiptextCenter}>
             <Link href='old_simon.jpg' target='_blank'>
               <Image
                 src='/old_simon.jpg'

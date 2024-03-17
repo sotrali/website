@@ -10,8 +10,8 @@ export default function Home() {
     return (
         <Layout pageID={"blog"}>
 
-            <p> blogs go here </p>
-            <Link href="posts/pitfalls-of-arch-on-macbook">The Pitfalls of installing Arch Linux on a MacBook Air 2015</Link>
+            <h1>ok</h1>
+
 
         </Layout>
     );

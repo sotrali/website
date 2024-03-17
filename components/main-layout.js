@@ -3,59 +3,39 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../styles/layout.module.css";
-import utilStyles from "../styles/utils.module.css";
 
-import BurgerMenu from "../components/Collapsible.js";
-import { useState } from "react";
 
-function NavLinks() {
-  return (
-    <div className={styles.linkStack}>
-      <Link href='/' className={styles.navLink2}>
-        Home
-      </Link>
-
-      <Link href='/projects' className={styles.navLink2}>
-        Projects
-      </Link>
-
-      <Link href='/posts' className={styles.navLink2}>
-        Blog
-      </Link>
-
-      <Link href='/testimonials' className={styles.navLink2}>
-        Testimonials
-      </Link>
-
-      <Link href='/info' className={styles.navLink2}>
-        About
-      </Link>
-    </div>
-  );
-}
 
 function PageHeader({ pageID }) {
-  // Determine what page title/head information should be displayed
-  let title = "Simon O'Shea - Welcome";
-  let pageHeader = "Home";
-  if (pageID === "info") {
-    title = "Simon O'Shea - Info";
-    pageHeader = "About Me";
+  // Determine what page nav link should be italicized
+  let title = "Welcome";
+
+  let onHome = false;
+  let onProjects = false;
+  let onBlog = false;
+  let onTestimonials = false;
+  let onAbout = false;
+
+  if (pageID === "welcome") {
+    onHome = true;
   }
   if (pageID === "projects") {
-    title = "Simon O'Shea - Projects";
-    pageHeader = "My Projects";
+    title = "Projects";
+    onProjects = true;
+  }
+  if (pageID === "blog") {
+    title = "Blog";
+    onBlog = true;
   }
   if (pageID === "testimonials") {
-    title = "Simon O'Shea - Testimonials";
-    pageHeader = "Testimonials";
+    title = "Testimonials";
+    onTestimonials = true;
+  }
+  if (pageID === "about") {
+    title = "About";
+    onAbout = true;
   }
 
-  const [showMenu, setShowMenu] = useState(false);
-
-  function handleMenu() {
-    setShowMenu(!showMenu);
-  }
 
   return (
     <header>
@@ -65,21 +45,27 @@ function PageHeader({ pageID }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
 
-      <div className={styles.header}>
-        <span onClick={handleMenu}>
-          <div className={styles.burgerButtons}>
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
-            <div className={styles.bar}></div>
-          </div>
-        </span>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <Link href='/' className="navLink" style={{ fontStyle: onHome && "italic" }}>
+          Home
+        </Link>
 
-        <h1 className={styles.pageHeader}>{pageHeader}</h1>
+        <Link href='/projects' className="navLink" style={{ fontStyle: onProjects && "italic" }}>
+          Projects
+        </Link>
+
+        <Link href='/posts' className="navLink" style={{ fontStyle: onBlog && "italic" }}>
+          Blog
+        </Link>
+
+        <Link href='/testimonials' className="navLink" style={{ fontStyle: onTestimonials && "italic" }}>
+          Testimonials
+        </Link>
+
+        <Link href='/about' className="navLink" style={{ fontStyle: onAbout && "italic" }}>
+          About
+        </Link>
       </div>
-
-      <BurgerMenu isExpanded={showMenu} isOverlay={"true"}>
-        <NavLinks />
-      </BurgerMenu>
 
       <hr
         style={{
@@ -88,27 +74,38 @@ function PageHeader({ pageID }) {
           border: "1px solid gray",
         }}
       />
-    </header>
+    </header >
   );
 }
 
-function Footer() {
+function Footer({ pageID }) {
   return (
-    <div>
-      <hr />
-      <div style={{ paddingTop: ".25rem" }}>
+    <div style={{ paddingTop: ".25rem" }}>
+      <hr style={{
+        color: "gray",
+        backgroundColor: "gray",
+        border: "1px solid gray",
+      }} />
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div style={{ lineHeight: "0px" }}>
 
-        <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank' title="Visit my LinkedIn">
-          <Image src="/linkedin.png" width={25} height={25} alt="linkedin logo"></Image>
-        </a>
+          <a href='https://www.linkedin.com/in/simon-o-shea/' target='_blank' title="Visit my LinkedIn" style={{ paddingRight: "1rem" }}>
+            <Image src="/linkedin.png" width={25} height={25} alt="linkedin logo"></Image>
+          </a>
 
-        <a href='https://github.com/osheas1atwit' target='_blank' title="Visit my GitHub">
-          <Image src="/github.png" width={25} height={25} alt="github logo"></Image>
-        </a>
+          <a href='https://github.com/osheas1atwit' target='_blank' title="Visit my GitHub" style={{ paddingRight: "1rem" }}>
+            <Image src="/github.png" width={25} height={25} alt="github logo"></Image>
+          </a>
 
-        <a href='/resume.pdf' target='_blank' title="View my resume">
-          <Image src="/resume.png" width={25} height={25} alt="resume icon"></Image>
-        </a>
+          <a href='/resume.pdf' target='_blank' title="View my resume">
+            <Image src="/resume.png" width={25} height={25} alt="resume icon"></Image>
+          </a>
+        </div>
+        <div>
+
+          {/*   could put something here in footer on opposite side of links    */}
+
+        </div>
       </div>
     </div>
   );
@@ -121,7 +118,7 @@ export default function Layout({ children, pageID }) {
 
       <main style={{ textAlign: "center" }}>{children}</main>
 
-      <Footer />
+      <Footer pageID={pageID} />
     </div>
   );
 }

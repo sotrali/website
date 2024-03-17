@@ -1,4 +1,5 @@
 @media only screen and (min-width: 720px) {
+
   html,
   body {
     /* supposed to make sure content is shown in same place regardless of whether there is a scrollbar present. reduces jarring motion */
@@ -26,10 +27,14 @@
     /* removes text selection. 
      * selecting the text on the button takes away from the effect, especially on mobile. 
      */
-    user-select: none; /* chrome and Opera */
-    -moz-user-select: none; /* Firefox */
-    -webkit-text-select: none; /* IOS Safari */
-    -webkit-user-select: none; /* Safari */
+    user-select: none;
+    /* chrome and Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -webkit-text-select: none;
+    /* IOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
   }
 
   .menuButton:hover {
@@ -43,10 +48,21 @@
     background-color: #889589;
     animation: squish 0.2s forwards;
   }
+
+  .navLink {
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    padding: 0;
+    margin: 0;
+  }
 }
 
 /* FOR MOBILE - iphone 13 mini width: 375px */
 @media only screen and (max-width: 720px) {
+
   html,
   body {
     padding: 0;
@@ -69,17 +85,34 @@
     /* removes text selection. 
      * selecting the text on the button takes away from the effect, especially on mobile. 
      */
-    user-select: none; /* chrome and Opera */
-    -moz-user-select: none; /* Firefox */
-    -webkit-text-select: none; /* IOS Safari */
-    -webkit-user-select: none; /* Safari */
+    user-select: none;
+    /* chrome and Opera */
+    -moz-user-select: none;
+    /* Firefox */
+    -webkit-text-select: none;
+    /* IOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
   }
+
   .menuButton:active {
     border-radius: 99%;
     background-color: #889589;
   }
+
+  .navLink {
+    font-size: .88rem;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    padding: .1rem 0rem .1rem 0rem;
+  }
+
+
 }
 
+/* GENERAL UNIVERSAL STYLES */
 a,
 a.visited {
   color: black;
@@ -112,27 +145,34 @@ img {
 
 /** ANIMATIONS FOR HEADER ORBS */
 @keyframes squish {
+
   from,
   to {
     transform: scale(1, 1);
   }
+
   100% {
     transform: scale(0.8, 0.6);
   }
 }
+
 @keyframes squeeze {
+
   from,
   to {
     transform: scale(1, 1);
   }
+
   100% {
     transform: scale(0.9, 1);
   }
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
