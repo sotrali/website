@@ -165,18 +165,21 @@ export default function Home() {
         <br />
         Some things to note:
         <br />
-        <br />
-        ~ The live environment is going to reset itself every time you shut the
-        computer down. Any packages/files you install/create on the live
-        environment system will no longer exist upon reboot.
-        <br />
-        <br />
-        ~ Assuming you followed the official instructions and only installed the
-        essential packages (and nothing more), your new out-of-the-box Arch
-        system will be less equipped than the live environment. For example, the
-        MacBook won't be able to connect to the internet without additional
-        packages.
-        <br />
+        <ul>
+          <li>
+            The live environment is going to reset itself every time you shut
+            the computer down. Any packages/files you install/create on the live
+            environment system will no longer exist upon reboot.
+          </li>
+          <br />
+          <li>
+            Assuming you followed the official instructions and only installed
+            the essential packages (and nothing more), your new out-of-the-box
+            Arch system will be less equipped than the live environment. For
+            example, the MacBook won't be able to connect to the internet
+            without additional packages.
+          </li>
+        </ul>
         <br />
         Thankfully, you can easily include any extra packages you need (or want)
         alongside the essentials. In the third section, I'll give you a few
@@ -245,30 +248,35 @@ export default function Home() {
         <br />
         Here are the packages you should download (and why):
         <br />
-        <br />- <span className={utilStyles.inlineCode}>usbmuxd</span> (for
-        iPhone tethering)
-        <br />
-        <br />- <span className={utilStyles.inlineCode}>
-          broadcom-wl-dkms
-        </span>{" "}
-        (drivers for Broadcom wi-fi card)
-        <br />
-        <br />- <span className={utilStyles.inlineCode}>
-          linux-headers
-        </span>{" "}
-        (computer needs these for building Broadcom drivers)
-        <br />
-        <br />- <span className={utilStyles.inlineCode}>
-          wpa_supplicant
-        </span>{" "}
-        (for wi-fi authentication (in place of{" "}
-        <span className={utilStyles.inlineCode}>iwd</span>))
-        <br />
-        <br />- <span className={utilStyles.inlineCode}>less</span> (this one is
-        not mac specific- but you can pipe really long command outputs into it,
-        which is really helpful on a fresh install when you're using a basic tty
-        with no scrolling)
-        <br />
+        <ul>
+          <li>
+            <span className={utilStyles.inlineCode}>usbmuxd</span> (for iPhone
+            tethering)
+          </li>
+          <br />
+          <li>
+            <span className={utilStyles.inlineCode}>broadcom-wl-dkms</span>{" "}
+            (drivers for Broadcom wi-fi card)
+          </li>
+          <br />
+          <li>
+            <span className={utilStyles.inlineCode}>linux-headers</span>{" "}
+            (computer needs these for building Broadcom drivers)
+          </li>
+          <br />
+          <li>
+            <span className={utilStyles.inlineCode}>wpa_supplicant</span>
+            (for wi-fi authentication (in place of{" "}
+            <span className={utilStyles.inlineCode}>iwd</span>)
+          </li>
+          <br />
+          <li>
+            <span className={utilStyles.inlineCode}>less</span> (this one is not
+            mac specific- but you can pipe really long command outputs into it,
+            which is really helpful on a fresh install when you're using a basic
+            tty with no scrolling)
+          </li>
+        </ul>
         <br />
         So, when you get to{" "}
         <a href='https://wiki.archlinux.org/title/installation_guide#Install_essential_packages'>
@@ -321,7 +329,8 @@ export default function Home() {
         <span className={utilStyles.inlineCode}>systemd-networkd</span> and{" "}
         <span className={utilStyles.inlineCode}>systemd-resolved</span> plus{" "}
         <span className={utilStyles.inlineCode}>wpa_supplicant</span> for all of
-        your network management needs. Once you've gotten to the{" "}
+        your network management needs (assuming you've installed
+        wpa_supplicant). Once you've gotten to the{" "}
         <a href='https://wiki.archlinux.org/title/installation_guide#Network_configuration'>
           network configuration step
         </a>{" "}
@@ -349,13 +358,11 @@ export default function Home() {
       </div>
 
       <p className={utilStyles.blogParagraph}>
-        (
         <i>
           <a href='https://wiki.archlinux.org/title/systemd-networkd#Wireless_adapter'>
             source
           </a>
         </i>
-        )
         <br />
         <br />
         Use <span className={utilStyles.inlineCode}>ip link</span> or{" "}
@@ -375,20 +382,19 @@ export default function Home() {
       </div>
 
       <p className={utilStyles.blogParagraph}>
-        (
         <i>
           <a href='https://itsfoss.com/install-arch-linux/#network-configuration'>
             source
           </a>
         </i>
-        )
         <br />
         <br />
         <br />I would recommend restarting{" "}
         <span className={utilStyles.inlineCode}>networkd</span> and{" "}
         <span className={utilStyles.inlineCode}>resolved</span> afterwards to
-        make sure the changes are put into effect, then enabling them so that
-        they automatically launch upon boot in the future (
+        make sure the changes are put into effect, then{" "}
+        <span className={utilStyles.inlineCode}>systemctl enable</span>-ing them
+        so that they automatically launch upon boot in the future (
         <a href='https://wiki.archlinux.org/title/systemd#Using_units'>
           help for systemctl commands
         </a>
@@ -403,7 +409,8 @@ export default function Home() {
         <a href='https://wiki.archlinux.org/title/wpa_supplicant#Connecting_with_wpa_cli'>
           these instructions
         </a>{" "}
-        for logging into your wi-fi network.
+        for logging into your wi-fi network. They're pretty straight forward and
+        you should be able to just follow along in that section I linked to.
         <br />
         <br />
         NOTE: If you have problems with{" "}
