@@ -29,6 +29,9 @@ export default function About() {
                 alt='A video of me doing a kickflip in the middle of the street.'
               />
             </Link>
+            <br />
+            Kickflip.
+            <br />- Summer 2023 -
           </span>
         </div>
         {/** TODO:

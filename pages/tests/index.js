@@ -31,9 +31,9 @@ export default function welcome() {
       <div>
         <p>
           This "sandbox" is a separate sub-section of my blog/site where I
-          experiement with web development. It started as a directory of
-          javascript files for the little challenges and exercises found at the
-          end of the lessons in the{" "}
+          experiement with web development. It started back in November 2023 as
+          a directory of javascript files for the little challenges and
+          exercises found at the end of the lessons in the{" "}
           <a href='https://react.dev/learn/describing-the-ui' target='_blank'>
             React documentation
           </a>

@@ -318,7 +318,7 @@ export default function Home() {
         blacklist them.
         <br />
         <br />
-        Create the following file:{" "}
+        Create the file with the following command:{" "}
         <span className={utilStyles.inlineCode}>
           sudo nano /mnt/etc/modprobe.d/broadcom-wl-dkms.conf
         </span>
