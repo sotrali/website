@@ -17,7 +17,7 @@ export default function Home() {
           lineHeight: "1.3",
           fontWeight: "800",
           letterspacing: "-0.05rem",
-          margin: "1rem 0 1rem 0",
+          margin: "2rem 0 1rem 0",
         }}
       >
         Welcome.

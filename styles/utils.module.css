@@ -11,10 +11,12 @@ FONT / TEXT CLASSES
 }
 
 .inlineCode {
+  display: inline-block;
   font-family: monospace;
   font-style: italic;
+  font-size: 0.9rem;
   border-radius: 0.2rem;
-  padding: 0.15rem 0.3rem;
+  padding: 0rem 0.3rem;
   background-color: rgb(231, 228, 228);
 }
 

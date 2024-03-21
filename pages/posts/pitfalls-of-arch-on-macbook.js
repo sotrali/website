@@ -18,9 +18,7 @@ export default function Home() {
       >
         The Pitfalls of Installing Arch Linux on a MacBook Air 2015
       </h1>
-
       <i>~ Posted March 2024</i>
-
       <div
         className={utilStyles.card}
         style={{ margin: "1.5rem 3rem", padding: "1rem" }}
@@ -30,6 +28,13 @@ export default function Home() {
         </div>
         <hr />
         <div style={{ textAlign: "left", paddingLeft: "1rem" }}>
+          <Link
+            href='#intro'
+            style={{ display: "inline-block", marginBottom: ".5rem" }}
+          >
+            Introduction
+          </Link>
+          <br />
           <Link
             href='#overview'
             style={{ display: "inline-block", marginBottom: ".5rem" }}
@@ -48,7 +53,7 @@ export default function Home() {
             href='#wifi'
             style={{ display: "inline-block", marginBottom: ".5rem" }}
           >
-            Section 3: Packages For Wi-Fi Connection
+            Section 3: Packages for Wi-Fi Connection
           </Link>
           <br />
           <Link
@@ -69,7 +74,7 @@ export default function Home() {
             href='#grub'
             style={{ display: "inline-block", marginBottom: ".5rem" }}
           >
-            Bonus Tip: Booting From USB Using GRUB
+            Bonus Tip: Booting from USB Using GRUB
           </Link>
           <br />
           <Link
@@ -88,7 +93,7 @@ export default function Home() {
           <br />
         </div>
       </div>
-
+      <h2 id={"intro"}>Introduction</h2>
       <p className={utilStyles.blogParagraph}>
         I bought a MacBook Air 2015 from a friend last year, intending to use it
         as a Linux playground or baby home server. I installed Manjaro on it and
@@ -107,38 +112,35 @@ export default function Home() {
         Windows installations throughout my life, it took me longer than
         expected to get Arch off the ground. I fell into a few pitfalls that may
         take other users who are new to Linux some time to climb out of, so I
-        wanted to make this article to help out. Although now that I think of
-        it, most people trying Arch for the first time are probably already
-        experienced with Linux. If they're not, they may be inclined to use the
-        installation script, rather than do it by hand. It may very well be that
-        this post turns out to be nothing more than a writing exercise, but
-        maybe there's someone else out there trying to install Arch by hand on a
-        MacBook Air 2015 with limited Linux experience, and I dedicate this to
-        them. To get back to the point: in hindsight, these problems I
-        encountered were simple, but it took me a while to get everything
-        straightened out.
+        wanted to make this article to help out. <br />
+        <br />
+        Although now that I think of it, most people trying Arch for the first
+        time are probably experienced enough to not need my help, and other
+        Linux noobs may be inclined to use the installation script rather than
+        do it by hand like this. It may very well be that this post turns out to
+        be nothing more than a writing exercise! But, maybe there's another noob
+        out there trying to install Arch by hand on a MacBook Air 2015, and I
+        dedicate this to them.
         <br />
         <br />
-        There are other guides on installing Arch on MacBooks and official wiki
-        pages specifically for Mac troubleshooting. I highly recommend you
-        search for and read them as needed because they are very useful. Some
-        are full-blown walkthroughs and may include extra things like
-        dual-booting, and some are outdated. This article isn't an installation
-        walkthrough, I'm just providing recommendations/solutions that are
-        specific to issues I encountered.
+        There are full-on guides for installing Arch on MacBooks and official
+        Arch wiki pages specifically for Mac troubleshooting. I highly recommend
+        you search for and read them as needed because they are very useful and
+        I wouldn't be writing this without their help. Some are fancier
+        walkthroughs that include extra things like dual-booting, and some are
+        outdated. This article is not an installation walkthrough, I'm just
+        providing recommendations/solutions that are specific to issues I
+        encountered.
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"overview"}>Section 1: Getting a Bird's-Eye View</h2>
       <p className={utilStyles.blogParagraph}>
         The official documentation is great, but progress might be slow if
         you're trying to navigate the wiki by yourself for the first time. While
         wiki-wandering can be very educational, I think a concise, high-level
-        explanation of the process could be useful for a first-timer:
-        <br />
-        <br />
-        (If you already know what the install process is, you can skip this
-        section)
+        explanation of the process could be useful for a first-timer (if you
+        already know what the install process is, you can{" "}
+        <Link href={"#tethering"}>skip</Link> this section):
         <br />
         <br />
         The very first step is to get an ISO of Arch and burn it to a USB stick,
@@ -146,21 +148,33 @@ export default function Home() {
         into the live environment, you are starting up a little preconfigured
         Arch system. This little system can be used for installing Arch (duh),
         system maintenance, or even recovery purposes. When you're inside the
-        live environment, you aren't using the computer's internal drives, but
-        you can still see them as connected storage devices with a command like{" "}
-        <span className={utilStyles.inlineCode}>fdisk -l</span>. Since the
-        drives are still accessible to us, we still have the ability to
-        read/write/delete the information stored on them.
+        live environment, you aren't using the computer's internal disk, but you
+        can still see it as connected storage device with a command like{" "}
+        <span className={utilStyles.inlineCode}>fdisk -l</span>. Since the disk
+        is still accessible to us, we still have the ability to
+        read/write/delete the information stored on it.
         <br />
-        <br />A quick explanation of the whole install process is: we boot into
-        the live environment, get rid of the old data on the computer's internal
-        disk, repartition and format it, and then download/install the{" "}
-        <a href='https://wiki.archlinux.org/title/installation_guide#Install_essential_packages'>
-          essential Arch packages
-        </a>{" "}
-        onto it. Voila, once you've installed the packages and done some basic
-        configuration (like setting a login password), you have officially
-        installed Arch.
+        <br />A high-level explanation of the whole install process is:
+        <ul>
+          <li>Boot into live environment</li>
+          <li>Repartition the computer's drive</li>
+          <li>Format the partitions</li>
+          <li>
+            Mount the drive into the live evironment so we can put stuff on it
+          </li>
+          <li>
+            Download/Install the{" "}
+            <a href='https://wiki.archlinux.org/title/installation_guide#Install_essential_packages'>
+              essential Arch packages
+            </a>{" "}
+            onto the disk
+          </li>
+          <li>
+            Do some basic system configuration (like setting a root password)
+          </li>
+          <li>Reboot</li>
+        </ul>
+        Voila! At this point, you have officially installed Arch.
         <br />
         <br />
         Some things to note:
@@ -182,16 +196,18 @@ export default function Home() {
         </ul>
         <br />
         Thankfully, you can easily include any extra packages you need (or want)
-        alongside the essentials. In the third section, I'll give you a few
-        package suggestions and show you which one you need for the Broadcom
-        BCM4360 Wi-Fi card! (spoiler: it's{" "}
+        alongside the essentials. In the{" "}
+        <Link href={"#wifi"}>third section</Link>, I'll give you a few package
+        suggestions and show you which one you need for the Broadcom BCM4360
+        Wi-Fi card! (spoiler: it's{" "}
         <span className={utilStyles.inlineCode}>usbmuxd</span>)
         <br />
         <br />
         If you're reading this right now and are about to start installing Arch
         on a MacBook 2015, then I recommend reading through my whole article
-        quickly before beginning! Or don't. During the actual installation, I
-        recommend using the{" "}
+        quickly before beginning! Or don't. <br />
+        <br />
+        During the installation process, I recommend using the{" "}
         <a href='https://wiki.archlinux.org/title/installation_guide#'>
           official installation guide
         </a>{" "}
@@ -201,16 +217,15 @@ export default function Home() {
         what the official guide is asking you to do.
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"tethering"}>Section 2: Installing Arch via iPhone Tethering</h2>
       <p className={utilStyles.blogParagraph}>
         When I started my first install and went to the official tethering
         instructions for iPhones, it said that you need to install drivers for
         tethering to work. It took me a day to realize that the drivers I needed
         were pre-installed on the live environment. By then, I had already set
-        up a whole virtual machine running Arch on my Windows computer just to
-        download and compile said drivers to transfer to my MacBook via USB...
-        Anyways, if you have an iPhone, it should be pretty simple to get
+        up a whole Arch virtual maching on my Windows computer, and was
+        downloading and compiling said drivers to transfer to my MacBook via
+        USB... Anyways, if you have an iPhone, it should be pretty simple to get
         tethered up.
         <br />
         <br />
@@ -236,13 +251,16 @@ export default function Home() {
       </p>
       <hr className={utilStyles.lightHr} />
 
-      <h2 id={"wifi"}>Section 3: Packages For Wi-Fi Connection</h2>
+      <h2 id={"wifi"}>Section 3: Packages for Wi-Fi Connection</h2>
       <p className={utilStyles.blogParagraph}>
         In order to get your fresh install of Arch connected to the internet,
         your MacBook needs some specific software that cooperates with its
-        hardware. The wi-fi card (the Broadcom BCM4360) is unfortunately not
-        supported by the default drivers, and the MacBook doesn't seem to jive
-        well with <span className={utilStyles.inlineCode}>iwd</span> for wi-fi
+        hardware.
+        <br />
+        <br />
+        The wi-fi card (the Broadcom BCM4360) is unfortunately not supported by
+        the default drivers, and the MacBook doesn't seem to jive well with{" "}
+        <span className={utilStyles.inlineCode}>iwd</span> for wi-fi
         authentication, so we'll need alternatives.
         <br />
         <br />
@@ -289,11 +307,10 @@ export default function Home() {
         <span className={utilStyles.inlineCode}>networkd</span> and{" "}
         <span className={utilStyles.inlineCode}>resolved</span> alongside{" "}
         <span className={utilStyles.inlineCode}>wpa_supplicant</span> /{" "}
-        <span className={utilStyles.inlineCode}>wpa_cli</span>. I will explain
-        that setup later.
+        <span className={utilStyles.inlineCode}>wpa_cli</span>. I explain this
+        setup in <Link href={"#network-management"}>section five</Link>.
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"conflicts"}>Section 4: Wi-Fi Driver Conflicts</h2>
       <p className={utilStyles.blogParagraph}>
         The <span className={utilStyles.inlineCode}>broadcom-wl-dkms</span>{" "}
@@ -307,9 +324,22 @@ export default function Home() {
         </span>
         <br />
         <br />
-        This new file should just contain these lines: blacklist b43 blacklist
-        b43legacy blacklist bcm43xx blacklist bcma blacklist brcm80211 blacklist
-        brcmfmac blacklist brcmsmac blacklist ssb And then:{" "}
+        This new file should just contain these lines:
+      </p>
+      <div className={utilStyles.blockCode}>
+        blacklist b43
+        <br />
+        blacklist b43legacy
+        <br /> blacklist bcm43xx
+        <br /> blacklist bcma
+        <br />
+        blacklist brcm80211
+        <br /> blacklist brcmfmac
+        <br /> blacklist brcmsmac
+        <br /> blacklist ssb
+      </div>
+      <p className={utilStyles.blogParagraph}>
+        Then, use this command:{" "}
         <span className={utilStyles.inlineCode}>sudo mkinitcpio -p linux</span>
         <br />
         <br />
@@ -320,17 +350,20 @@ export default function Home() {
         </i>
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"network-management"}>
         Section 5: Bare Bones Network Management
       </h2>
       <p className={utilStyles.blogParagraph}>
         If you want to go super barebones, you can just use the built in{" "}
         <span className={utilStyles.inlineCode}>systemd-networkd</span> and{" "}
-        <span className={utilStyles.inlineCode}>systemd-resolved</span> plus{" "}
-        <span className={utilStyles.inlineCode}>wpa_supplicant</span> for all of
-        your network management needs (assuming you've installed
-        wpa_supplicant). Once you've gotten to the{" "}
+        <span className={utilStyles.inlineCode}>systemd-resolved</span> packages
+        plus <span className={utilStyles.inlineCode}>wpa_supplicant</span> for
+        all of your network management needs (assuming you've installed
+        wpa_supplicant). In this section, we'll use these tools to get
+        connected!
+        <br />
+        <br />
+        Once you've gotten to the{" "}
         <a href='https://wiki.archlinux.org/title/installation_guide#Network_configuration'>
           network configuration step
         </a>{" "}
@@ -346,7 +379,6 @@ export default function Home() {
         </span>
         , and contain:
       </p>
-
       <div className={utilStyles.blockCode}>
         [Match]
         <br /> Name=YOUR_WIFI_CARD_NAME
@@ -356,7 +388,6 @@ export default function Home() {
         <br /> IgnoreCarrierLoss=3s
         <br />
       </div>
-
       <p className={utilStyles.blogParagraph}>
         <i>
           <a href='https://wiki.archlinux.org/title/systemd-networkd#Wireless_adapter'>
@@ -374,13 +405,11 @@ export default function Home() {
         <span className={utilStyles.inlineCode}>/etc/hosts</span>, and contain:
         <br />
       </p>
-
       <div className={utilStyles.blockCode}>
         127.0.0.1 localhost <br />
         ::1 localhost <br />
         127.0.1.1 YOUR_HOSTNAME_HERE
       </div>
-
       <p className={utilStyles.blogParagraph}>
         <i>
           <a href='https://itsfoss.com/install-arch-linux/#network-configuration'>
@@ -414,8 +443,9 @@ export default function Home() {
         <br />
         <br />
         NOTE: If you have problems with{" "}
-        <span className={utilStyles.inlineCode}>wpa_cli</span> not connecting,
-        run it with <span className={utilStyles.inlineCode}>sudo</span>!
+        <span className={utilStyles.inlineCode}>wpa_cli</span> not
+        starting/connecting properly, run it with{" "}
+        <span className={utilStyles.inlineCode}>sudo</span>!
         <br />
         <br />
         Once you've gone through those steps and enabled your network, you can
@@ -427,13 +457,15 @@ export default function Home() {
         <br />
         FYI, even after you have{" "}
         <span className={utilStyles.inlineCode}>wpa_supplicant</span> connected
-        to a network and a config saved, you will need to initialize it with the{" "}
+        to a network and a config saved, you will need to initialize it with the
+        following command every time you reboot the computer:{" "}
         <span className={utilStyles.inlineCode}>
           wpa_supplicant -B -i _interface_ -c
           /etc/wpa_supplicant/wpa_supplicant.conf
         </span>{" "}
-        command each time you reboot the computer. There's gotta be a way to
-        automate that, but I haven't taken the time to figure it out yet.
+        <br />
+        <br /> There's gotta be a way to automatically initialize that, but I
+        haven't taken the time to figure it out yet.
         <br />
         <br />
         To understand this setup more, read about{" "}
@@ -457,14 +489,14 @@ export default function Home() {
         .
       </p>
       <hr className={utilStyles.lightHr} />
-
-      <h2 id={"grub"}>Bonus Tip: Booting From USB Using GRUB</h2>
+      <h2 id={"grub"}>Bonus Tip: Booting from USB Using GRUB</h2>
       <p className={utilStyles.blogParagraph}>
         Rewinding back to the very beginning of the install process, my first
-        issue was my lack of a boot menu besides the GRUB console. I had no
-        BIOS, no OpenFirmware, no GUI for booting the computer at all! I had
-        never seen GRUB before and I was already running into issues before I
-        had even booted the live environment, so I was a little nervous.
+        issue was a lack of a boot menu besides the GRUB console. I had no BIOS,
+        no OpenFirmware, no GUI for booting the computer at all! I had never
+        seen GRUB before, and the fact that I was already running into issues
+        before I had even booted the live environment made me a lil' little
+        nervous.
         <br />
         <br />
         Thankfully, I found{" "}
@@ -472,9 +504,8 @@ export default function Home() {
           a lovely post
         </a>{" "}
         that explains the process of booting from a USB with GRUB in a nice and
-        concise manner. That post really helped me out- so much so, that I felt
-        the need to save the procedure in this guide, reworded by myself (if you
-        don't need to use GRUB, this is superfluous information):
+        concise manner. That post really helped me out! So much so, that I felt
+        the need to save the procedure in this guide, reworded by myself:
         <br />
         <br />
         <b>Step 1: Locate your USB drive</b>
@@ -488,13 +519,12 @@ export default function Home() {
         <span className={utilStyles.inlineCode}>(hd0,msdos1)</span>, but it
         could be different on your machine.
         <br />
-        <br />
-        It was easy to determine which device was the live environment, because{" "}
-        <span className={utilStyles.inlineCode}>(hd0,msdos1)</span> was the only
-        device with a msdos partition GRUB could find, and the label for the
-        drive was "ARCHLINUX_202402" (if you can't see the label, make sure
-        you're including the <span className={utilStyles.inlineCode}>-l</span>{" "}
-        flag).
+        <br />I was able to determine which device held my live environment
+        because <span className={utilStyles.inlineCode}>(hd0,msdos1)</span> was
+        the only device with a msdos partition GRUB could find, and the label
+        for the drive was "ARCHLINUX_202402" (if you can't see the label, make
+        sure you're including the{" "}
+        <span className={utilStyles.inlineCode}>-l</span> flag).
         <br />
         <br />
         <b>Step 2: Enter the USB drive</b>
@@ -549,20 +579,18 @@ export default function Home() {
         Medium.
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"conclusion"}>Conclusion</h2>
       <p className={utilStyles.blogParagraph}>
         As a lifelong Windows user, installing Arch provided a fun challenge and
-        the opportunity to understand how my computer works a bit more
-        intimately. I have learned a lot about the operating system installation
-        process, I have become more comfortable navigating official
-        documentation/manual pages, and I have been deeply humbled in my
-        attempts to convert to a more command-line-focused computer setup. It's
-        amazing how much you learn while earning a computer science degree, and
-        yet 80% of what I had to do to get Arch set up, I needed to teach myself
-        on the spot. I am extremely grateful to my professors who introduced me
-        to bash and disk management, as this process would've been a nightmare
-        without it.
+        the opportunity to understand how my computer works more intimately. I
+        have learned a lot about the operating system installation process, have
+        become more comfortable navigating official documentation/manual pages,
+        and have been deeply humbled in my attempts to convert to a more
+        command-line-focused computer setup. It's amazing how much you learn
+        while earning a computer science degree, and yet 80% of what I had to do
+        to get Arch set up, I needed to teach myself on the spot. I am extremely
+        grateful to my professors who introduced me to bash and disk management,
+        as this process would've been a nightmare without it.
         <br />
         <br />
         After having gone through this process, I believe that computer science
@@ -573,18 +601,18 @@ export default function Home() {
         <span className={utilStyles.inlineCode}>ls</span> and{" "}
         <span className={utilStyles.inlineCode}>cd</span>, let alone piping
         output from one command into another. Who knows, I just personally
-        believe that university is far too expensive for it to be focused purely
-        on high-level languages like Java. As a student who felt like they got
-        the short end of the stick, I really do think we would benefit from a
-        stronger focus on C, using the CLI, and exploring systems that are not
-        using Windows.
+        believe that university is far too expensive for it to be so narrowly
+        focused on high-level languages like Java. As a graduate who feels like
+        they received the short end of the stick (and trust me, I really put
+        effort into my education), I firmly believe students would benefit from
+        a curriculum that focuses more on C, shells, and exploring other
+        operating systems that are not Windows.
         <br />
         <br />
-        Anyways, writing this was a lot of fun, and I hope that maybe this post
-        actually helps someone out!
+        Anyways, writing this was a lot of fun, and I hope that this post maybe
+        helps someone out!
       </p>
       <hr className={utilStyles.lightHr} />
-
       <h2 id={"next-steps"}>Next Steps (for me)</h2>
       <p className={utilStyles.blogParagraph}>
         After I get comfortable with a nice WM or DE configuration, I plan on
@@ -599,6 +627,15 @@ export default function Home() {
         <br />
         Until next time!
       </p>
+      <br />
+      <br />
+      <i>
+        If you noticed any errors or mis-explanations of any of these steps,
+        please feel free to contact me at <u>vesspa0330@gmail.com</u> and let me
+        know!
+      </i>
+      <br />
+      <br />
       <a href='#top' style={{ fontSize: ".7rem" }}>
         back to top
       </a>
