@@ -13,14 +13,12 @@ function Quote({ children, author, title, location, link }) {
       </p>
 
       <div style={{ textAlign: "right", marginRight: "1rem" }}>
-        <span style={{ marginBottom: "0", paddingBottom: "0" }}>
-          <h1 className={utilStyles.quoteAuthor}>
-            -
-            <a href={link} target='_blank'>
-              {author}
-            </a>
-          </h1>
-        </span>
+        <h1 className={utilStyles.quoteAuthor}>
+          -
+          <a href={link} target='_blank'>
+            {author}
+          </a>
+        </h1>
         <h3 className={utilStyles.quoteAuthorInfo}>
           {title}
           <br />
