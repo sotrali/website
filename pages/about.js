@@ -19,7 +19,7 @@ export default function About() {
       <div style={{ margin: "1em 0" }}>
         I enjoy playing with my computer,{" "}
         <div className={utilStyles.tooltip}>
-          riding my skateboard
+          skateboarding
           <span className={utilStyles.tooltiptextCenter}>
             <Link href='kickflip.gif' target='_blank'>
               <Image
@@ -75,11 +75,13 @@ export default function About() {
               />
             </Link>
             <br />
-            Halfway through making my <br /> first handmade fingerboard.
-            <br /> 2022
+            My first time making a fingerboard
+            <br />
+            deck, halfway through the process.
+            <br /> - 2022 -
           </span>
         </div>
-        . I just recently graduated from Wentworth Institute of Technology with
+        . In August 2023 I graduated from Wentworth Institute of Technology with
         a degree in Computer Science and a minor in Business Managment.
         <br />
         <br />
@@ -102,21 +104,27 @@ export default function About() {
             ~2016
           </span>
         </div>
-        . Over the years and up until attending WIT, my focus shifted from
-        hardware to software. I have set my sights on becoming a highly
-        competent full-stack software engineer, and am looking to join a team of
-        other passionate and motivated individuals!
+        . Over the years leading up to my time at Wentworth, my interest shifted
+        from hardware to software. I love working on websites and have been
+        transforming my own personal site for years. It's a constant work in
+        progress, and continuous evolution is one of my favorite parts of
+        software development. Recently, I came across the concept of{" "}
+        <a href='https://www.methodsandtools.com/archive/softwaregardening.php'>
+          software gardening
+        </a>{" "}
+        and it resonated with me strongly. If you're a developer and have never
+        heard of it before, I think it's worth the quick read.
         <br />
         <br />
-        Currently I work with a nonprofit based in my hometown,{" "}
-        <a href='https://windowdressers.org'>WindowDressers</a>, which provides
-        cheap window insulation options for communities across Northern New
-        England. I work part time to help renovate their custom software
-        solution and internal website.
+        I'm currently on the{" "}
+        <a href='https://eustaceconsulting.com/'>Eustace Consulting</a> team
+        working full time and working on getting my administration
+        certification. Once I have that, I'll be working on my developer status.
         <br />
-        <br />I enjoy making things that others can interact and engage with,
-        especially if it helps them accomplish a goal, teaches them something,
-        and/or puts a smile on their face. What do you like to make?
+        <br />
+        Otherwise, I enjoy making things that others can interact and engage
+        with, especially if it helps them accomplish a goal, teaches them
+        something, and/or puts a smile on their face. What do you like to make?
       </div>
     </Layout>
   );

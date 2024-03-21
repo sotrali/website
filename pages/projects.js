@@ -8,14 +8,14 @@ import Collapsible from "../components/Collapsible.js";
 
 import { useState } from "react";
 
-
 function Project({
   title,
   skills,
   children,
   githubLink = "https://www.github.com/osheas1atwit",
   hasSecondButton = false,
-  secondButtonText = "", secondButtonLink = ""
+  secondButtonText = "",
+  secondButtonLink = "",
 }) {
   const [showContent, setShowContent] = useState(false);
 
@@ -25,7 +25,6 @@ function Project({
 
   return (
     <div className={utilStyles.expandBox} style={{ textAlign: "left" }}>
-
       <div className={utilStyles.expandBoxHeadSpread} onClick={handleClick}>
         <p className={utilStyles.expandBoxTitle}>{title}</p>
         <p className={utilStyles.expandBoxSkills}>{skills}</p>
@@ -36,43 +35,48 @@ function Project({
 
         <div>{children}</div>
 
-        <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: "1rem" }}>
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingBottom: "1rem",
+          }}
+        >
           <Link href={githubLink} target='_blank'>
-            <Image src="/github.png" width={25} height={25} title="go to git repo" />
+            <Image
+              src='/github.png'
+              width={25}
+              height={25}
+              title='go to git repo'
+            />
           </Link>
 
           {hasSecondButton && (
-            <Link href={secondButtonLink} target='_blank' >
+            <Link href={secondButtonLink} target='_blank'>
               <button className={utilStyles.medButton}>
                 {secondButtonText}
               </button>
-            </Link>)}
-
+            </Link>
+          )}
         </div>
-      </Collapsible >
-    </div >
+      </Collapsible>
+    </div>
   );
 }
-
 
 // Main Function
 export default function Home() {
   return (
     <Layout pageID={"projects"}>
-
-      <p>
-        I am a curious individual that enjoys spending time on my computer. This
-        page highlights a few of the things I have used my computer to create!
-      </p>
-
+      <br />
       <Project
         title='Personal Website'
         skills='NEXT.JS / AWS'
-        githubLink="https://github.com/osheas1atwit/professional-website"
+        githubLink='https://github.com/osheas1atwit/professional-website'
         hasSecondButton={true}
-        secondButtonLink="https://hub.docker.com/r/osheas/personal-website"
-        secondButtonText="Docker">
+        secondButtonLink='https://hub.docker.com/r/osheas/personal-website'
+        secondButtonText='Docker'
+      >
         <p>
           This project is the website you're on right now! Since graduating from
           Wentworth Institute of Technology in August '23, I set my sights on
@@ -98,12 +102,12 @@ export default function Home() {
         </p>
       </Project>
 
-
       <Project
         title='CGM Stats'
         skills='REACT / PYTHON / DOCKER'
-        githubLink="https://github.com/shepherdm1atwit/CGM-Stats/tree/bootstrap-refactor"
-        hasSecondButton={false}>
+        githubLink='https://github.com/shepherdm1atwit/CGM-Stats/tree/bootstrap-refactor'
+        hasSecondButton={false}
+      >
         <p>
           CGM Stats is a web application for people with diabetes. It securely
           interacts with the Dexcom API to enable users to quickly access their
@@ -141,12 +145,12 @@ export default function Home() {
         </Link>
       </Project>
 
-
       <Project
         title='Pathfinding Algorithm Visualizer'
         skills='C# / UNITY'
-        githubLink="https://github.com/osheas1atwit/pathfinding-visualizer"
-        hasSecondButton={false}>
+        githubLink='https://github.com/osheas1atwit/pathfinding-visualizer'
+        hasSecondButton={false}
+      >
         <p>
           My graduate classical artificial intelligence course introduced me to
           a variety of strategies for solving problems with basic AI concepts.
@@ -172,19 +176,18 @@ export default function Home() {
         </Link>
 
         <p>
-          The repo contains a pre-built executable if you want to try the game yourself!
-          Just click the little icon below.
+          The repo contains a pre-built executable if you want to try the game
+          yourself! Just click the little icon below.
         </p>
       </Project>
-
 
       <Project
         title='MythMatchr'
         skills='C# / UNITY'
-        githubLink="https://github.com/osheas1atwit/MythMatchr"
+        githubLink='https://github.com/osheas1atwit/MythMatchr'
         hasSecondButton={true}
-        secondButtonLink="https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link"
-        secondButtonText="Play Game"
+        secondButtonLink='https://drive.google.com/file/d/1WexVwxeEXa23TS78dbG35dPkxtFYEbSZ/view?usp=share_link'
+        secondButtonText='Play Game'
       >
         <p>
           MythMatchr is a play on the popular{" "}
@@ -232,12 +235,12 @@ export default function Home() {
         </p>
       </Project>
 
-
       <Project
         title='Java Chat'
         skills='JAVA / NETWORKING'
-        githubLink="https://github.com/osheas1atwit/pathfinding-visualizer"
-        hasSecondButton={false}>
+        githubLink='https://github.com/osheas1atwit/pathfinding-visualizer'
+        hasSecondButton={false}
+      >
         <p>Java Chat is a chat application that feels like IRC.</p>
 
         <Link href='javachat.png' target='_blank'>
@@ -250,15 +253,14 @@ export default function Home() {
             style={{ marginBottom: "1rem" }}
           />
         </Link>
-
       </Project>
-
 
       <Project
         title='CLI Integration Calculator'
         skills='JAVA / CALCULUS'
-        githubLink="https://github.com/osheas1atwit/integrationCalculator/tree/master"
-        hasSecondButton={false}>
+        githubLink='https://github.com/osheas1atwit/integrationCalculator/tree/master'
+        hasSecondButton={false}
+      >
         <p>
           A basic command line program built for calculus II that can calculate
           exact and estimated values. It estimates using the fundamental theorem
@@ -266,7 +268,6 @@ export default function Home() {
           methods.
         </p>
       </Project>
-
 
       <p style={{ textAlign: "center" }}>
         (Not made with my computer, but I've also built a{" "}

@@ -50,11 +50,6 @@
   row-gap: 0.1rem;
 }
 
-
-
-
-
-
 /** DESKTOP STYLES */
 @media only screen and (min-width: 720px) {
   .pageHeader {
@@ -69,16 +64,6 @@
   }
 }
 
-.container {
-  max-width: 36rem;
-  padding: 1rem 1rem;
-  margin: 3rem auto 6rem;
-  background-color: whitesmoke;
-  border: solid black 1px;
-
-  /* height: 80vh;*/
-}
-
 .content {
   height: 80%;
   overflow: scroll;
@@ -91,14 +76,11 @@
   align-items: flex-end;
 }
 
-
-
 .backHome {
   margin: 3rem 0 0;
 }
 
 @keyframes squish {
-
   from,
   to {
     transform: scale(1, 1);

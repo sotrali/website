@@ -4,7 +4,7 @@ import styles from "../../styles/layout.module.css";
 
 export default function main() {
   return (
-    <div className={styles.container} style={{ textAlign: "center" }}>
+    <div className={"container"} style={{ textAlign: "center" }}>
       <p>
         <i>Wow!!</i> You found the extra secret page!
       </p>

@@ -26,9 +26,8 @@ function Quote({ children, author, title, location, link }) {
           <br />
           <i>{location}</i>
         </h3>
-
       </div>
-    </div >
+    </div>
   );
 }
 
@@ -36,13 +35,13 @@ function Quote({ children, author, title, location, link }) {
 export default function Main() {
   return (
     <Layout pageID={"testimonials"}>
-      <p className={utilStyles.blue}>
-        I am deeply appreciative to the following people for taking the time to write these kind words about me. They were a
-        fantastic support system and made my time at Wentworth Institute of
-        Technology truly fulfilling.
+      <p>
+        I am deeply appreciative to the following people for taking the time to
+        write these kind words about me. They were a fantastic support system
+        and made my time at Wentworth Institute of Technology truly fulfilling.
       </p>
 
-      <hr style={{ width: "50%", marginTop: "2rem", marginBottom: "3rem" }} />
+      <hr className={utilStyles.lightHr} />
 
       <Quote
         author={"Tory Lam"}
@@ -59,7 +58,7 @@ export default function Main() {
         his dedication to making the world a better place.
       </Quote>
 
-      <hr style={{ width: "50%", marginTop: "2rem", marginBottom: "3rem" }} />
+      <hr className={utilStyles.lightHr} />
 
       <Quote
         author={"Emily Casey"}
@@ -84,7 +83,7 @@ export default function Main() {
         student.
       </Quote>
 
-      <hr style={{ width: "50%", marginTop: "2rem", marginBottom: "3rem" }} />
+      <hr className={utilStyles.lightHr} />
 
       <Quote
         author={"Brian Quigley"}

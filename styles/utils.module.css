@@ -2,12 +2,36 @@
 FONT / TEXT CLASSES
 */
 
-.headingXl {
-  font-size: 2rem;
+.blogLink {
+  font-size: 1.5rem;
   line-height: 1.3;
   font-weight: 800;
   letter-spacing: -0.05rem;
   margin: 1rem 0 1rem 0;
+}
+
+.inlineCode {
+  font-family: monospace;
+  font-style: italic;
+  border-radius: 0.2rem;
+  padding: 0.15rem 0.3rem;
+  background-color: rgb(231, 228, 228);
+}
+
+.blockCode {
+  font-family: monospace;
+  text-align: left;
+  background-color: rgb(231, 228, 228);
+  padding: 2.5rem 2rem;
+  border-radius: 0.5rem;
+
+  margin: 0.75rem 2.5rem;
+}
+
+.blogParagraph {
+  text-align: left;
+  margin: 0 2rem;
+  line-height: 1.5rem;
 }
 
 .bigButton {
@@ -30,6 +54,12 @@ FONT / TEXT CLASSES
   /* IOS Safari */
   -webkit-user-select: none;
   /* Safari */
+}
+
+.lightHr {
+  width: 50%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .medButton {
@@ -68,7 +98,6 @@ FONT / TEXT CLASSES
 }
 
 @keyframes squish {
-
   from,
   to {
     transform: scale(1, 1);
@@ -80,7 +109,6 @@ FONT / TEXT CLASSES
 }
 
 @keyframes gelatine {
-
   from,
   to {
     transform: scale(1, 1);
@@ -218,11 +246,9 @@ toc = table of contents, used in react tests
 }
 
 .tocHead {
-  padding-top: 1em;
-  padding-bottom: 0.5em;
+  padding-top: 0rem 0rem 0rem 0rem;
 
   display: block;
-  text-decoration: underline;
   cursor: pointer;
   margin-top: 0em;
   text-align: center;
@@ -378,7 +404,6 @@ GENERAL EXPANDABLE BOX
 }
 
 /* END TOOLTIPS */
-
 
 /* For picture in "about" page */
 .headshot {

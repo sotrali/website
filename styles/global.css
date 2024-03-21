@@ -1,5 +1,4 @@
 @media only screen and (min-width: 720px) {
-
   html,
   body {
     /* supposed to make sure content is shown in same place regardless of whether there is a scrollbar present. reduces jarring motion */
@@ -14,39 +13,14 @@
     background-color: #b7ccb9;
   }
 
-  .menuButton {
-    font-weight: bold;
-
-    width: 3rem;
-    height: 3rem;
-
-    background-color: #b7ccb9;
+  .container {
+    max-width: 36rem;
+    padding: 1rem 2rem;
+    margin: 3rem auto 6rem;
+    background-color: whitesmoke;
     border: solid black 1px;
-    transition: all 0.1s ease;
 
-    /* removes text selection. 
-     * selecting the text on the button takes away from the effect, especially on mobile. 
-     */
-    user-select: none;
-    /* chrome and Opera */
-    -moz-user-select: none;
-    /* Firefox */
-    -webkit-text-select: none;
-    /* IOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-  }
-
-  .menuButton:hover {
-    cursor: pointer;
-    animation: squeeze 0.5s forwards;
-    background-color: #c3d6c7;
-  }
-
-  .menuButton:active {
-    border-radius: 99%;
-    background-color: #889589;
-    animation: squish 0.2s forwards;
+    /* height: 80vh;*/
   }
 
   .navLink {
@@ -62,7 +36,6 @@
 
 /* FOR MOBILE - iphone 13 mini width: 375px */
 @media only screen and (max-width: 720px) {
-
   html,
   body {
     padding: 0;
@@ -72,44 +45,24 @@
     background-color: #b7ccb9;
   }
 
-  .menuButton {
-    font-weight: bold;
-
-    width: 3rem;
-    height: 3rem;
-
-    background-color: #b7ccb9;
+  .container {
+    max-width: 36rem;
+    padding: 1rem 1rem;
+    margin: 3rem auto 6rem;
+    background-color: whitesmoke;
     border: solid black 1px;
-    transition: all 0.1s ease;
 
-    /* removes text selection. 
-     * selecting the text on the button takes away from the effect, especially on mobile. 
-     */
-    user-select: none;
-    /* chrome and Opera */
-    -moz-user-select: none;
-    /* Firefox */
-    -webkit-text-select: none;
-    /* IOS Safari */
-    -webkit-user-select: none;
-    /* Safari */
-  }
-
-  .menuButton:active {
-    border-radius: 99%;
-    background-color: #889589;
+    /* height: 80vh;*/
   }
 
   .navLink {
-    font-size: .88rem;
+    font-size: 0.88rem;
     font-weight: 700;
 
     text-decoration: none;
 
-    padding: .1rem 0rem .1rem 0rem;
+    padding: 0.1rem 0rem 0.1rem 0rem;
   }
-
-
 }
 
 /* GENERAL UNIVERSAL STYLES */
@@ -145,7 +98,6 @@ img {
 
 /** ANIMATIONS FOR HEADER ORBS */
 @keyframes squish {
-
   from,
   to {
     transform: scale(1, 1);
@@ -157,7 +109,6 @@ img {
 }
 
 @keyframes squeeze {
-
   from,
   to {
     transform: scale(1, 1);

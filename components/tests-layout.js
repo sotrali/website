@@ -99,7 +99,7 @@ export default function Layout({ home = false, id = 0, children }) {
   let page = id.toString();
   let title = "Simon O'Shea - Test Page " + page;
   return (
-    <div className={mainStyles.container}>
+    <div className={"container"}>
       <Head>
         <link rel='icon' href='/headshot.png' />
         <title>{title}</title>
@@ -116,7 +116,7 @@ export default function Layout({ home = false, id = 0, children }) {
         }}
       >
         <span>
-          <Link href='/'>← Back to Home</Link>
+          <Link href='/posts'>← Back to Blogs</Link>
         </span>
         <span>
           page {id} of {urls.length - 1}
