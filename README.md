@@ -1,1 +1,3 @@
-This is my personal website's repository, soon to be hosted somewhere. It contains information about me and my professional experience.
+This is my personal website's repository, hosted somewhere... It contains information...
+
+If you're coming here from my site, go ahead and check out my code if you dare..
