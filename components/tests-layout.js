@@ -4,8 +4,6 @@ import { useState } from "react";
 
 import { exerciseUrls as urls } from "../public/test_urls.js";
 import utilStyles from "../styles/utils.module.css";
-import styles from "../styles/tests.module.css";
-import mainStyles from "../styles/layout.module.css";
 
 function TableOfContents({ list, id, small = false }) {
   // call useState to receive our state variable and our set-function
@@ -21,7 +19,7 @@ function TableOfContents({ list, id, small = false }) {
     <>
       <div className={small ? utilStyles.tocSmall : utilStyles.tocBig}>
         <p className={utilStyles.tocHead} onClick={handleShow}>
-          {showTableOfContents ? "collapse" : "expand"} table of contents
+          {showTableOfContents ? "close" : "open"} table of contents
         </p>
 
         {showTableOfContents && (
@@ -30,11 +28,10 @@ function TableOfContents({ list, id, small = false }) {
               {list.map((index) => (
                 <li key={index.id}>
                   <Link href={index.url}>{index.title}</Link>
-                  {id == index.id && " *"}
+                  {id == index.id && " <-- u r here"}
                 </li>
               ))}
             </ol>
-            <p style={{ fontSize: ".8em" }}>* denotes current page</p>
           </>
         )}
       </div>
@@ -57,7 +54,7 @@ function PageNavButtons({ id }) {
       {id > 1 ? (
         <Link href={urls[id - 1].url}>← Previous Page</Link>
       ) : id === 1 ? (
-        <Link href='/tests'>← Back to Sandbox Home</Link>
+        <Link href="/tests">← Back to Sandbox Home</Link>
       ) : (
         <span></span>
       )}
@@ -99,9 +96,9 @@ export default function Layout({ home = false, id = 0, children }) {
   let page = id.toString();
   let title = "Simon O'Shea - Test Page " + page;
   return (
-    <div className={"container"}>
+    <div className={"container-light"}>
       <Head>
-        <link rel='icon' href='/headshot.png' />
+        <link rel="icon" href="/headshot.png" />
         <title>{title}</title>
       </Head>
 
@@ -116,7 +113,7 @@ export default function Layout({ home = false, id = 0, children }) {
         }}
       >
         <span>
-          <Link href='/posts'>← Back to Blogs</Link>
+          <Link href="/blog">← back to normal site</Link>
         </span>
         <span>
           page {id} of {urls.length - 1}

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 
 export default function Collapse({
   isExpanded = false,
@@ -7,7 +7,7 @@ export default function Collapse({
 }) {
   const ref = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (ref.current) {
       setContentHeight(ref.current.clientHeight + 10);
     }
@@ -16,7 +16,7 @@ export default function Collapse({
   if (isOverlay) {
     return (
       <div
-        className='collapse'
+        className="collapse"
         style={{
           height: isExpanded ? contentHeight : 0,
           position: "absolute",
@@ -33,7 +33,7 @@ export default function Collapse({
   } else {
     return (
       <div
-        className='collapse'
+        className="collapse"
         style={{
           height: isExpanded ? contentHeight : 0,
         }}

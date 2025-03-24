@@ -7,15 +7,13 @@ import utilStyles from "../styles/utils.module.css";
 
 function Quote({ children, author, title, location, link }) {
   return (
-    <div>
-      <p className={utilStyles.quote}>
-        <i>"{children}"</i>
-      </p>
+    <div style={{ marginBottom: "5rem" }}>
+      <p className={utilStyles.quote}>"{children}"</p>
 
       <div style={{ textAlign: "right", marginRight: "1rem" }}>
         <h1 className={utilStyles.quoteAuthor}>
           -
-          <a href={link} target='_blank'>
+          <a href={link} target="_blank">
             {author}
           </a>
         </h1>
@@ -33,13 +31,13 @@ function Quote({ children, author, title, location, link }) {
 export default function Main() {
   return (
     <Layout pageID={"testimonials"}>
-      <p>
-        I am deeply appreciative to the following people for taking the time to
+      <p style={{ marginTop: "0rem" }}>
+        I am deeply appreciative that the following people took the time to
         write these kind words about me. They were a fantastic support system
         and made my time at Wentworth Institute of Technology truly fulfilling.
       </p>
 
-      <hr className={utilStyles.lightHr} />
+      <hr className={utilStyles.lightHr} style={{ marginBottom: "5rem" }} />
 
       <Quote
         author={"Tory Lam"}
@@ -55,8 +53,6 @@ export default function Main() {
         helping and caring for others, he truly deserves to be recognized for
         his dedication to making the world a better place.
       </Quote>
-
-      <hr className={utilStyles.lightHr} />
 
       <Quote
         author={"Emily Casey"}
@@ -81,8 +77,6 @@ export default function Main() {
         student.
       </Quote>
 
-      <hr className={utilStyles.lightHr} />
-
       <Quote
         author={"Brian Quigley"}
         title={"Director of Transition Programs & Family Engagement"}
@@ -101,7 +95,6 @@ export default function Main() {
         talking to at ease. It is in Simon’s nature to jump right in, make
         connections, and seek out learning opportunities.
       </Quote>
-      <br />
     </Layout>
   );
 }

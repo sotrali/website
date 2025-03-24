@@ -4,13 +4,13 @@ import styles from "../../styles/layout.module.css";
 
 export default function main() {
   return (
-    <div className={"container"} style={{ textAlign: "center" }}>
+    <div className={"container-light"} style={{ textAlign: "center" }}>
       <p>
         <i>Wow!!</i> You found the extra secret page!
       </p>
 
       <p style={{ fontSize: ".9em" }}>
-        <Image src='/dad.png' width={800} height={600} />
+        <Image src="/dad.png" width={800} height={600} />
         me and my cool dad, circa ~2005
       </p>
 
@@ -19,7 +19,7 @@ export default function main() {
         <br />
 
         <b>
-          <a href='https://chrystsound.bandcamp.com/' target='_blank'>
+          <a href="https://chrystsound.bandcamp.com/" target="_blank">
             chryst
           </a>
         </b>
@@ -27,8 +27,8 @@ export default function main() {
         <br />
         <b>
           <a
-            href='https://open.spotify.com/artist/4mgP1XtTPrt6aFIU1Iaklp?si=yrRO5F3FS9u6iVRR4SfMow'
-            target='_blank'
+            href="https://open.spotify.com/artist/4mgP1XtTPrt6aFIU1Iaklp?si=yrRO5F3FS9u6iVRR4SfMow"
+            target="_blank"
           >
             ezra cares
           </a>
@@ -36,14 +36,14 @@ export default function main() {
 
         <br />
         <b>
-          <a href='https://www.instagram.com/cofskateclub' target='_blank'>
+          <a href="https://www.instagram.com/cofskateclub" target="_blank">
             cof skate
           </a>
         </b>
 
         <br />
         <b>
-          <a href='https://www.instagram.com/shredmancomic/' target='_blank'>
+          <a href="https://www.instagram.com/shredmancomic/" target="_blank">
             shredman
           </a>
         </b>
@@ -51,15 +51,24 @@ export default function main() {
         <br />
         <b>
           <a
-            href='https://www.instagram.com/lonelyboneskateco/'
-            target='_blank'
+            href="https://www.instagram.com/lonelyboneskateco/"
+            target="_blank"
           >
             lonely bones
           </a>
         </b>
       </p>
+      <p>
+        <i>other guys i like:</i>
+        <br />
+        <b>
+          <a href="https://melonking.net/" target="_blank">
+            melon king
+          </a>
+        </b>
+      </p>
       <hr />
-      <Link href='/tests'>bring me back</Link>
+      <Link href="/tests">bring me back</Link>
     </div>
   );
 }

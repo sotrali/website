@@ -2,157 +2,170 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "../styles/layout.module.css";
-
 function PageHeader({ pageID }) {
   // Determine what page nav link should be italicized
   let title = "Welcome";
 
-  let onHome = false;
-  let onProjects = false;
-  let onBlog = false;
-  let onTestimonials = false;
-  let onAbout = false;
-
-  if (pageID === "welcome") {
-    onHome = true;
-  }
   if (pageID === "projects") {
     title = "Projects";
-    onProjects = true;
-  }
-  if (pageID === "blog") {
+  } else if (pageID === "blog") {
     title = "Blog";
-    onBlog = true;
-  }
-  if (pageID === "testimonials") {
+  } else if (pageID === "testimonials") {
     title = "Testimonials";
-    onTestimonials = true;
-  }
-  if (pageID === "about") {
+  } else if (pageID === "about") {
     title = "About";
-    onAbout = true;
   }
 
   return (
-    <header>
+    <header style={{ marginBottom: "2rem" }}>
       <Head>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
         <title>{title}</title>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <Link
-          href='/'
-          className='navLink'
-          style={{ fontStyle: onHome && "italic" }}
-        >
-          Home
-        </Link>
+        {pageID === "welcome" ? (
+          <Link
+            href="/"
+            className="navLink-light"
+            style={{ fontStyle: "italic", color: "#6e825a" }}
+          >
+            Home
+          </Link>
+        ) : (
+          <Link href="/" className="navLink-light">
+            Home
+          </Link>
+        )}
 
-        <Link
-          href='/projects'
-          className='navLink'
-          style={{ fontStyle: onProjects && "italic" }}
-        >
-          Projects
-        </Link>
+        {pageID === "projects" ? (
+          <Link
+            href="/projects"
+            className="navLink-light"
+            style={{ fontStyle: "italic", color: "#6e825a" }}
+          >
+            Projects
+          </Link>
+        ) : (
+          <Link href="/projects" className="navLink-light">
+            Projects
+          </Link>
+        )}
 
-        <Link
-          href='/posts'
-          className='navLink'
-          style={{ fontStyle: onBlog && "italic" }}
-        >
-          Blog
-        </Link>
+        {pageID === "blog" ? (
+          <Link
+            href="/blog"
+            className="navLink-light"
+            style={{ fontStyle: "italic", color: "#6e825a" }}
+          >
+            Blog
+          </Link>
+        ) : (
+          <Link href="/blog" className="navLink-light">
+            Blog
+          </Link>
+        )}
 
-        <Link
-          href='/testimonials'
-          className='navLink'
-          style={{ fontStyle: onTestimonials && "italic" }}
-        >
-          Testimonials
-        </Link>
+        {pageID === "testimonials" ? (
+          <Link
+            href="/testimonials"
+            className="navLink-light"
+            style={{ fontStyle: "italic", color: "#6e825a" }}
+          >
+            Testimonials
+          </Link>
+        ) : (
+          <Link href="/testimonials" className="navLink-light">
+            Testimonials
+          </Link>
+        )}
 
-        <Link
-          href='/about'
-          className='navLink'
-          style={{ fontStyle: onAbout && "italic" }}
-        >
-          About
-        </Link>
+        {pageID === "about" ? (
+          <Link
+            href="/about"
+            className="navLink-light"
+            style={{ fontStyle: "italic", color: "#6e825a" }}
+          >
+            About
+          </Link>
+        ) : (
+          <Link href="/about" className="navLink-light">
+            About
+          </Link>
+        )}
       </div>
 
       <hr
         style={{
-          color: "gray",
-          backgroundColor: "gray",
-          border: "1px solid gray",
+          color: "#6e825a",
+          backgroundColor: "#6e825a",
+          border: "1px solid #6e825a",
         }}
       />
     </header>
   );
 }
 
-function Footer({ pageID }) {
+function Footer() {
   return (
     <div style={{ paddingTop: ".25rem" }}>
       <hr
         style={{
-          color: "gray",
-          backgroundColor: "gray",
-          border: "1px solid gray",
+          color: "#6e825a",
+          backgroundColor: "#6e825a",
+          border: "1px solid #6e825a",
         }}
       />
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "left",
           alignItems: "center",
         }}
       >
-        <div style={{ lineHeight: "0px" }}>
-          <a
-            href='https://www.linkedin.com/in/simon-o-shea/'
-            target='_blank'
-            title='Visit my LinkedIn'
-            style={{ paddingRight: "1rem" }}
-          >
-            <Image
-              src='/linkedin.png'
-              width={25}
-              height={25}
-              alt='linkedin logo'
-            ></Image>
-          </a>
+        <a
+          href="https://www.linkedin.com/in/simon-o-shea/"
+          target="_blank"
+          title="Visit my LinkedIn"
+          style={{ display: "inline-block", marginRight: "1rem" }}
+        >
+          <Image
+            src="/linkedin.png"
+            width={25}
+            height={25}
+            alt="linkedin logo"
+            priority={true}
+          ></Image>
+        </a>
 
-          <a
-            href='https://github.com/osheas1atwit'
-            target='_blank'
-            title='Visit my GitHub'
-            style={{ paddingRight: "1rem" }}
-          >
-            <Image
-              src='/github.png'
-              width={25}
-              height={25}
-              alt='github logo'
-            ></Image>
-          </a>
+        <a
+          href="https://github.com/sotrali"
+          target="_blank"
+          title="Visit my GitHub"
+          style={{ display: "inline-block", marginRight: "1rem" }}
+        >
+          <Image
+            src="/github.png"
+            width={25}
+            height={25}
+            alt="github logo"
+          ></Image>
+        </a>
 
-          <a href='/resume.pdf' target='_blank' title='View my resume'>
-            <Image
-              src='/resume.png'
-              width={25}
-              height={25}
-              alt='resume icon'
-            ></Image>
-          </a>
-        </div>
-        <div>
-          {/*   could put something here in footer on opposite side of links    */}
-        </div>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          title="View my resume"
+          style={{ display: "inline-block", marginRight: "1rem" }}
+        >
+          <Image
+            src="/resume.png"
+            width={25}
+            height={25}
+            alt="resume icon"
+          ></Image>
+        </a>
       </div>
     </div>
   );
@@ -160,12 +173,12 @@ function Footer({ pageID }) {
 
 export default function Layout({ children, pageID }) {
   return (
-    <div className={"container"}>
+    <div className={"container-light"}>
       <PageHeader pageID={pageID} />
 
       <main style={{ textAlign: "center" }}>{children}</main>
 
-      <Footer pageID={pageID} />
+      <Footer />
     </div>
   );
 }
